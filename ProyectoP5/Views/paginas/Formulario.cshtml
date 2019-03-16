@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Formulario";
+}
+@using (Html.BeginForm("formularioRecive", "paginas", FormMethod.Post))
+{
+    <br />
+
+    <h3>
+        @Html.Label("nombre", "Nombre:  ")&nbsp;
+        @Html.TextBox("txtNombre", null, new { @class = "textbox" })
+    </h3>
+    <h3>
+        @Html.Label("cedula", "Cedula:  ")&nbsp;
+        @Html.TextBox("txtCedula", null, new { @class = "textbox" })
+    </h3>
+
+    <h3>
+        @Html.Label("edad", "Edad:  ")&nbsp;
+        @Html.TextBox("txtEdad", null, new { @class = "textbox" })
+    </h3>
+    <h3>
+        @Html.Label("correo", "Correo:  ")&nbsp;
+        @Html.TextBox("txtCorreo", null, new { @class = "textbox" })
+    </h3>
+
+
+    <h3>
+        @Html.Label("profecion", "Profecion:  ")&nbsp;
+        @Html.TextBox("txtProfecion", null, new { @class = "textbox" })
+    </h3>
+
+    <h3>
+        @Html.Label("provincia", "Provincia:  ")&nbsp;
+        @Html.DropDownList("Provincia", new List<SelectListItem> {
+                            new SelectListItem{Text="San Jose",Value="0" },
+                            new SelectListItem{Text="Alajuela",Value="1" },
+                            new SelectListItem{Text="Guanacaste",Value="2" },
+                            new SelectListItem{Text="Puntarenas",Value="3" },
+                            new SelectListItem{Text="Limon",Value="4" },
+                            new SelectListItem{Text="Heredia",Value="5" },
+                            new SelectListItem{Text="Cartago",Value="6" }})
+
+        @Html.Label("canton", "Canton:  ") &nbsp;
+        @Html.TextBox("txtCanton", null, new { @class = "textbox" })
+
+        @Html.Label("distrito", "Distrito:  ") &nbsp;
+        @Html.TextBox("txtDistrito", null, new { @class = "textbox" })
+    </h3>
+
+    <p>
+        <input type="submit" value="Guardar" name="Guardar" class="btn btn-primary" />
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <input type="reset" value="Limpiar" name="Limpiar" class="btn btn-primary" />
+    </p>
+
+}
