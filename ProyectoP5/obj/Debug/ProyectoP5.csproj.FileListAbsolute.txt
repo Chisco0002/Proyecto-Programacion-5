@@ -194,6 +194,8 @@ C:\Users\Chisco\Source\Repos\Progra5\ProyectoP5\ProyectoP5\obj\Debug\ProyectoP5.
 C:\Users\Chisco\Source\Repos\Progra5\ProyectoP5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CopyComplete
 C:\Users\Chisco\Source\Repos\Progra5\ProyectoP5\ProyectoP5\obj\Debug\ProyectoP5.dll
 C:\Users\Chisco\Source\Repos\Progra5\ProyectoP5\ProyectoP5\obj\Debug\ProyectoP5.pdb
+C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csprojAssemblyReference.cache
+C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CoreCompileInputs.cache
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\ApplicationInsights.config
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\ProyectoP5.dll.config
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\ProyectoP5.dll
@@ -245,6 +247,8 @@ C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\roslyn\VBCSCompiler.exe
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\Antlr3.Runtime.dll
+C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\EntityFramework.dll
+C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\EntityFramework.SqlServer.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -265,6 +269,8 @@ C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\System.Web.WebPages.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\System.Web.WebPages.Razor.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\WebGrease.dll
+C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\EntityFramework.xml
+C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\EntityFramework.SqlServer.xml
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\System.Web.Helpers.xml
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\System.Web.Mvc.xml
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\System.Web.Optimization.xml
@@ -287,8 +293,6 @@ C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\es\System.Web.WebPages.resources.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csprojAssemblyReference.cache
-C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CoreCompileInputs.cache
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CopyComplete
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.pdb

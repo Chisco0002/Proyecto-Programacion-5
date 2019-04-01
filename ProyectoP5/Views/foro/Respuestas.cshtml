@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ProyectoP5.Models.foroRespuestas>
+
+@{
+    ViewBag.Title = "Respuestas";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar Respuesta", "agregarRespuesta")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("nombreReceptor", "Nombre del autor de la Respuesta ");
+        </th>
+        <th>
+            @Html.Label("detalleRespuesta", "Detalle Respuesta ");
+        </th>
+        <th>
+            @Html.Label("nombreRemitente", "Autor Consulta ");
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreReceptor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.detalleRespuesta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.foroConsulata.nombreRemitente)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Foro de Consultas", "Index")
+</div>

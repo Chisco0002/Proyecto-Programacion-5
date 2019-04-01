@@ -1,0 +1,42 @@
+﻿@model ProyectoP5.Models.foroConsulata
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>foroConsulata</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreRemitente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreRemitente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tituloConsulta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tituloConsulta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detalleConsulta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detalleConsulta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.consultaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

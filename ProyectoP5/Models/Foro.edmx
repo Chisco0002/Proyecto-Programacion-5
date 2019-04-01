@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Foro.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="foroConsulata">
+          <Key>
+            <PropertyRef Name="consultaID" />
+          </Key>
+          <Property Name="consultaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreRemitente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tituloConsulta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="detalleConsulta" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="foroRespuestas">
+          <Key>
+            <PropertyRef Name="respuestaID" />
+          </Key>
+          <Property Name="respuestaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreReceptor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="detalleRespuesta" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="consultaID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_foroRespuestas_foroConsulata">
+          <End Role="foroConsulata" Type="Self.foroConsulata" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="foroRespuestas" Type="Self.foroRespuestas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="foroConsulata">
+              <PropertyRef Name="consultaID" />
+            </Principal>
+            <Dependent Role="foroRespuestas">
+              <PropertyRef Name="consultaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ForoStoreContainer">
+          <EntitySet Name="foroConsulata" EntityType="Self.foroConsulata" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="foroRespuestas" EntityType="Self.foroRespuestas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_foroRespuestas_foroConsulata" Association="Self.FK_foroRespuestas_foroConsulata">
+            <End Role="foroConsulata" EntitySet="foroConsulata" />
+            <End Role="foroRespuestas" EntitySet="foroRespuestas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Foro" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="foroConsulata">
+          <Key>
+            <PropertyRef Name="consultaID" />
+          </Key>
+          <Property Name="consultaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreRemitente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tituloConsulta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="detalleConsulta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="foroRespuestas" Relationship="Self.FK_foroRespuestas_foroConsulata" FromRole="foroConsulata" ToRole="foroRespuestas" />
+        </EntityType>
+        <EntityType Name="foroRespuestas">
+          <Key>
+            <PropertyRef Name="respuestaID" />
+          </Key>
+          <Property Name="respuestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreReceptor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="detalleRespuesta" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="consultaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="foroConsulata" Relationship="Self.FK_foroRespuestas_foroConsulata" FromRole="foroRespuestas" ToRole="foroConsulata" />
+        </EntityType>
+        <Association Name="FK_foroRespuestas_foroConsulata">
+          <End Role="foroConsulata" Type="Self.foroConsulata" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="foroRespuestas" Type="Self.foroRespuestas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="foroConsulata">
+              <PropertyRef Name="consultaID" />
+            </Principal>
+            <Dependent Role="foroRespuestas">
+              <PropertyRef Name="consultaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="proyectoProgramacionVEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="foroConsulata" EntityType="Self.foroConsulata" />
+          <EntitySet Name="foroRespuestas" EntityType="Self.foroRespuestas" />
+          <AssociationSet Name="FK_foroRespuestas_foroConsulata" Association="Self.FK_foroRespuestas_foroConsulata">
+            <End Role="foroConsulata" EntitySet="foroConsulata" />
+            <End Role="foroRespuestas" EntitySet="foroRespuestas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForoStoreContainer" CdmEntityContainer="proyectoProgramacionVEntities3">
+          <EntitySetMapping Name="foroConsulata">
+            <EntityTypeMapping TypeName="Foro.foroConsulata">
+              <MappingFragment StoreEntitySet="foroConsulata">
+                <ScalarProperty Name="consultaID" ColumnName="consultaID" />
+                <ScalarProperty Name="nombreRemitente" ColumnName="nombreRemitente" />
+                <ScalarProperty Name="tituloConsulta" ColumnName="tituloConsulta" />
+                <ScalarProperty Name="detalleConsulta" ColumnName="detalleConsulta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="foroRespuestas">
+            <EntityTypeMapping TypeName="Foro.foroRespuestas">
+              <MappingFragment StoreEntitySet="foroRespuestas">
+                <ScalarProperty Name="respuestaID" ColumnName="respuestaID" />
+                <ScalarProperty Name="nombreReceptor" ColumnName="nombreReceptor" />
+                <ScalarProperty Name="detalleRespuesta" ColumnName="detalleRespuesta" />
+                <ScalarProperty Name="consultaID" ColumnName="consultaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
