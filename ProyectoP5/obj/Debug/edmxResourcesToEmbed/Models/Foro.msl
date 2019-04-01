@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ForoStoreContainer" CdmEntityContainer="proyectoProgramacionVEntities3">
+    <EntitySetMapping Name="foroConsulata">
+      <EntityTypeMapping TypeName="Foro.foroConsulata">
+        <MappingFragment StoreEntitySet="foroConsulata">
+          <ScalarProperty Name="consultaID" ColumnName="consultaID" />
+          <ScalarProperty Name="nombreRemitente" ColumnName="nombreRemitente" />
+          <ScalarProperty Name="tituloConsulta" ColumnName="tituloConsulta" />
+          <ScalarProperty Name="detalleConsulta" ColumnName="detalleConsulta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foroRespuestas">
+      <EntityTypeMapping TypeName="Foro.foroRespuestas">
+        <MappingFragment StoreEntitySet="foroRespuestas">
+          <ScalarProperty Name="respuestaID" ColumnName="respuestaID" />
+          <ScalarProperty Name="nombreReceptor" ColumnName="nombreReceptor" />
+          <ScalarProperty Name="detalleRespuesta" ColumnName="detalleRespuesta" />
+          <ScalarProperty Name="consultaID" ColumnName="consultaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

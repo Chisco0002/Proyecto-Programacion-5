@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -147,10 +155,34 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\foroConsulatasController.cs" />
+    <Compile Include="Controllers\foroController.cs" />
+    <Compile Include="Controllers\foroRespuestasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\paginasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Foro.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Foro.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Foro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Foro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Foro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Foro.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\foroConsulata.cs">
+      <DependentUpon>Foro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\foroRespuestas.cs">
+      <DependentUpon>Foro.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -163,10 +195,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Foro.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Foro.edmx</DependentUpon>
+      <LastGenOutput>Foro.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Foro.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Foro.edmx</DependentUpon>
+      <LastGenOutput>Foro.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\Foro.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Foro.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Foro.edmx.diagram">
+      <DependentUpon>Foro.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -199,10 +248,28 @@
     <Content Include="Views\paginas\tasaDePolíticaMonetaria.cshtml" />
     <Content Include="Views\paginas\tasaBasicaPasiva.cshtml" />
     <Content Include="Views\paginas\dolar.cshtml" />
+    <Content Include="Views\foroConsulatas\Create.cshtml" />
+    <Content Include="Views\foroConsulatas\Delete.cshtml" />
+    <Content Include="Views\foroConsulatas\Details.cshtml" />
+    <Content Include="Views\foroConsulatas\Edit.cshtml" />
+    <Content Include="Views\foroConsulatas\Index.cshtml" />
+    <Content Include="Views\relacionConsultaRespuestaForoes\Create.cshtml" />
+    <Content Include="Views\relacionConsultaRespuestaForoes\Delete.cshtml" />
+    <Content Include="Views\relacionConsultaRespuestaForoes\Details.cshtml" />
+    <Content Include="Views\relacionConsultaRespuestaForoes\Edit.cshtml" />
+    <Content Include="Views\relacionConsultaRespuestaForoes\Index.cshtml" />
+    <Content Include="Views\foro\Index.cshtml" />
+    <Content Include="Views\foro\Respuestas.cshtml" />
+    <Content Include="Views\foro\agregarRespuesta.cshtml" />
+    <Content Include="Views\foro\crearConsulta.cshtml" />
+    <Content Include="Views\foroRespuestas\Create.cshtml" />
+    <Content Include="Views\foroRespuestas\Delete.cshtml" />
+    <Content Include="Views\foroRespuestas\Details.cshtml" />
+    <Content Include="Views\foroRespuestas\Edit.cshtml" />
+    <Content Include="Views\foroRespuestas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -216,6 +283,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
