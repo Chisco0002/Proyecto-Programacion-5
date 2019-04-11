@@ -27,5 +27,6 @@ namespace ProyectoP5.Models
     
         public virtual DbSet<foroConsulata> foroConsulata { get; set; }
         public virtual DbSet<foroRespuestas> foroRespuestas { get; set; }
+        public virtual DbSet<asddsa> asddsa { get; set; }
     }
 }

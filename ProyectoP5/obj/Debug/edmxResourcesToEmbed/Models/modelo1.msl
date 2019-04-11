@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="proyectoProgramacionVModelStoreContainer" CdmEntityContainer="proyectoProgramacionVEntities6">
+    <EntitySetMapping Name="indicadoor">
+      <EntityTypeMapping TypeName="proyectoProgramacionVModel.indicadoor">
+        <MappingFragment StoreEntitySet="indicadoor">
+          <ScalarProperty Name="Espacio1" ColumnName="Espacio1" />
+          <ScalarProperty Name="Espacio2" ColumnName="Espacio2" />
+          <ScalarProperty Name="Espacio3" ColumnName="Espacio3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
