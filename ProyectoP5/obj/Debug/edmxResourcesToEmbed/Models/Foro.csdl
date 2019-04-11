@@ -41,5 +41,15 @@
       <End Role="foroConsulata" EntitySet="foroConsulata" />
       <End Role="foroRespuestas" EntitySet="foroRespuestas" />
     </AssociationSet>
+    <EntitySet Name="asddsa" EntityType="Foro.asddsa" />
   </EntityContainer>
+  <EntityType Name="asddsa">
+    <Key>
+      <PropertyRef Name="Espacio1" />
+    </Key>
+    <Property Name="Espacio1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Espacio2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Espacio3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Espacio4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

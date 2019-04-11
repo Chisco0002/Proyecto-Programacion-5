@@ -8,8 +8,13 @@ namespace ProyectoP5.Controllers
 {
 	public class HomeController : Controller
 	{
+		Clases.indicadorEconomico indi = new Clases.indicadorEconomico();
 		public ActionResult Index()
 		{
+			indi.tipoDeCambioVenta();
+			indi.tipoDeCambioCompra();
+			indi.tasaDePoliticaMonetaria();
+			indi.tasaBasicaPasiva();
 			return View();
 		}
 

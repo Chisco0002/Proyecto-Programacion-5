@@ -13,10 +13,10 @@ namespace ProyectoP5.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class proyectoProgramacionVEntities3 : DbContext
+    public partial class proyectoProgramacionVEntities4 : DbContext
     {
-        public proyectoProgramacionVEntities3()
-            : base("name=proyectoProgramacionVEntities3")
+        public proyectoProgramacionVEntities4()
+            : base("name=proyectoProgramacionVEntities4")
         {
         }
     
@@ -25,8 +25,5 @@ namespace ProyectoP5.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<foroConsulata> foroConsulata { get; set; }
-        public virtual DbSet<foroRespuestas> foroRespuestas { get; set; }
-        public virtual DbSet<asddsa> asddsa { get; set; }
     }
 }

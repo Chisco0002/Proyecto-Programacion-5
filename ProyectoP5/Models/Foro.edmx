@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Foro.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="asddsa">
+          <Key>
+            <PropertyRef Name="Espacio1" />
+          </Key>
+          <Property Name="Espacio1" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Espacio2" Type="varchar" MaxLength="50" />
+          <Property Name="Espacio3" Type="varchar" MaxLength="50" />
+          <Property Name="Espacio4" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="foroConsulata">
           <Key>
             <PropertyRef Name="consultaID" />
@@ -38,6 +47,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ForoStoreContainer">
+          <EntitySet Name="asddsa" EntityType="Self.asddsa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="foroConsulata" EntityType="Self.foroConsulata" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="foroRespuestas" EntityType="Self.foroRespuestas" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_foroRespuestas_foroConsulata" Association="Self.FK_foroRespuestas_foroConsulata">
@@ -90,7 +100,17 @@
             <End Role="foroConsulata" EntitySet="foroConsulata" />
             <End Role="foroRespuestas" EntitySet="foroRespuestas" />
           </AssociationSet>
+          <EntitySet Name="asddsa" EntityType="Foro.asddsa" />
         </EntityContainer>
+        <EntityType Name="asddsa">
+          <Key>
+            <PropertyRef Name="Espacio1" />
+          </Key>
+          <Property Name="Espacio1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Espacio2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Espacio3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Espacio4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -114,6 +134,16 @@
                 <ScalarProperty Name="nombreReceptor" ColumnName="nombreReceptor" />
                 <ScalarProperty Name="detalleRespuesta" ColumnName="detalleRespuesta" />
                 <ScalarProperty Name="consultaID" ColumnName="consultaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="asddsa">
+            <EntityTypeMapping TypeName="Foro.asddsa">
+              <MappingFragment StoreEntitySet="asddsa">
+                <ScalarProperty Name="Espacio4" ColumnName="Espacio4" />
+                <ScalarProperty Name="Espacio3" ColumnName="Espacio3" />
+                <ScalarProperty Name="Espacio2" ColumnName="Espacio2" />
+                <ScalarProperty Name="Espacio1" ColumnName="Espacio1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

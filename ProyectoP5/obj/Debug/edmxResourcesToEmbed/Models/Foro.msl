@@ -21,5 +21,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="asddsa">
+      <EntityTypeMapping TypeName="Foro.asddsa">
+        <MappingFragment StoreEntitySet="asddsa">
+          <ScalarProperty Name="Espacio4" ColumnName="Espacio4" />
+          <ScalarProperty Name="Espacio3" ColumnName="Espacio3" />
+          <ScalarProperty Name="Espacio2" ColumnName="Espacio2" />
+          <ScalarProperty Name="Espacio1" ColumnName="Espacio1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

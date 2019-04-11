@@ -194,8 +194,6 @@ C:\Users\Chisco\Source\Repos\Progra5\ProyectoP5\ProyectoP5\obj\Debug\ProyectoP5.
 C:\Users\Chisco\Source\Repos\Progra5\ProyectoP5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CopyComplete
 C:\Users\Chisco\Source\Repos\Progra5\ProyectoP5\ProyectoP5\obj\Debug\ProyectoP5.dll
 C:\Users\Chisco\Source\Repos\Progra5\ProyectoP5\ProyectoP5\obj\Debug\ProyectoP5.pdb
-C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csprojAssemblyReference.cache
-C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CoreCompileInputs.cache
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\ApplicationInsights.config
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\ProyectoP5.dll.config
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\ProyectoP5.dll
@@ -293,6 +291,8 @@ C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\es\System.Web.WebPages.resources.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CoreCompileInputs.cache
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CopyComplete
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.dll
 C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.pdb
+C:\Users\Chisco\source\repos\Progra5\GiutHub\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csprojAssemblyReference.cache
