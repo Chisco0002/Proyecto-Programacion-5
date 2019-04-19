@@ -80,8 +80,13 @@ namespace ProyectoP5.Clases
             DateTime fechaI = DateTime.Today.AddDays(-1095);
             DateTime fechaF = DateTime.Today;
 <<<<<<< HEAD
+<<<<<<< HEAD
             //for (DateTime i = fechaI;i < fechaF; i=i.AddDays(1)) { 
 			tipoDeCambioCompraDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", fechaI.ToShortDateString(), fechaF.ToShortDateString(), "Francisco", "N");
+=======
+            for (DateTime i = fechaI;i < fechaF; i=i.AddDays(1)) { 
+			tipoDeCambioCompraDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
+>>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
 =======
             for (DateTime i = fechaI;i < fechaF; i=i.AddDays(1)) { 
 			tipoDeCambioCompraDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
@@ -91,7 +96,11 @@ namespace ProyectoP5.Clases
 			String numValor = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
 			tipoDeCambioCompraConeccion(codIndicador, desFecha, numValor);
 <<<<<<< HEAD
+<<<<<<< HEAD
             //}
+=======
+            }
+>>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
 =======
             }
 >>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
@@ -118,9 +127,15 @@ namespace ProyectoP5.Clases
             DateTime fechaI = DateTime.Today.AddDays(-1095);
             DateTime fechaF = DateTime.Today;
 <<<<<<< HEAD
+<<<<<<< HEAD
             //for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
             //{
 			tasaDePoliticaMonetariaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", fechaI.ToShortDateString(), fechaF.ToShortDateString(), "Francisco", "N");
+=======
+            for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
+            {
+			tasaDePoliticaMonetariaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
+>>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
 =======
             for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
             {
@@ -131,7 +146,11 @@ namespace ProyectoP5.Clases
 			String numValor = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
 			tasaDePoliticaMonetariaConeccion(codIndicador, desFecha, numValor);
 <<<<<<< HEAD
+<<<<<<< HEAD
             //}
+=======
+            }
+>>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
 =======
             }
 >>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
@@ -161,9 +180,15 @@ namespace ProyectoP5.Clases
             DateTime fechaI = DateTime.Today.AddDays(-1095);
             DateTime fechaF = DateTime.Today;
 <<<<<<< HEAD
+<<<<<<< HEAD
             //for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
             //{
                 tasaBasicaPasivaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("423", fechaI.ToShortDateString(), fechaF.ToShortDateString(), "Ignacio", "N");
+=======
+            for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
+            {
+                tasaBasicaPasivaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("423", i.ToShortDateString(), i.ToShortDateString(), "Ignacio", "N");
+>>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
 =======
             for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
             {
@@ -174,7 +199,11 @@ namespace ProyectoP5.Clases
                 String numValor = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
                 tasaBasicaPasivaConeccion(codIndicador, desFecha, numValor);
 <<<<<<< HEAD
+<<<<<<< HEAD
             //}
+=======
+            }
+>>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
 =======
             }
 >>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f

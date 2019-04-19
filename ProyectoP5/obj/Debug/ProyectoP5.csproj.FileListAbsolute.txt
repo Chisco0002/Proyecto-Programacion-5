@@ -503,4 +503,7 @@ C:\Users\ignac\OneDrive\Escritorio\Proyecto\Proyecto-Programacion-5\ProyectoP5\o
 C:\Users\ignac\OneDrive\Escritorio\Proyecto\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.csproj.CopyComplete
 C:\Users\ignac\OneDrive\Escritorio\Proyecto\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.dll
 C:\Users\ignac\OneDrive\Escritorio\Proyecto\Proyecto-Programacion-5\ProyectoP5\obj\Debug\ProyectoP5.pdb
+<<<<<<< HEAD
+>>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
+=======
 >>>>>>> 63c230e96c6b41bb01902241e0c082a0710e681f
