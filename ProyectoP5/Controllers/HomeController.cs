@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoP5.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,18 +19,11 @@ namespace ProyectoP5.Controllers
 			return View();
 		}
 
-		public ActionResult About()
+		public ActionResult GetData()
 		{
-			ViewBag.Message = "Your application description page.";
-
-			return View();
+            proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
+            return View();
 		}
 
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
-		}
 	}
 }

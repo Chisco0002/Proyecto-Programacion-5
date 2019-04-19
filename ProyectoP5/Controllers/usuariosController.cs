@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoP5.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,39 +9,26 @@ using System.Web.Mvc;
 
 namespace ProyectoP5.Controllers
 {
-    public class paginasController : Controller
-    {
-        // GET: paginas
-        public ActionResult InformacionGeneral()
-        {
-            return View();
-        }
-		public ActionResult tasaDePolíticaMonetaria()
-		{
-			return View();
-		}
-		public ActionResult tasaBasicaPasiva()
-		{
-			return View();
-		}
-		public ActionResult dolar()
-		{
-			return View();
-		}
 
-		public ActionResult formulario()
+	public class usuarios : Controller
+	{
+		// GET: Student
+		public ActionResult Index()
 		{
 			return View();
 		}
+		private proyectoProgramacionVEntities3 db = new proyectoProgramacionVEntities3();
+
+		public DataSet usuarioDataSet;
 
 		protected void usuariosConeccion(string nombreUsuario, string cedulaUsuario,
-										int edadUsuario, string correoUsuario,
-										string profesiónUsuario, string provinciaUsuario,
+										int edadUsuario, string correoUsuario, 
+										string profesiónUsuario, string provinciaUsuario, 
 										string cantonUsuario, string distritoUsuario)
 		{
+	
 
-
-			SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=proyectoProgramacionV;Integrated Security=True");
+		   SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=proyectoProgramacionV;Integrated Security=True");
 			SqlCommand cmd = new SqlCommand("insercion_Usuario", con);
 			cmd.CommandType = CommandType.StoredProcedure;
 			cmd.Parameters.AddWithValue("nombreUsuario", nombreUsuario);
@@ -51,7 +39,7 @@ namespace ProyectoP5.Controllers
 			cmd.Parameters.AddWithValue("provinciaUsuario", provinciaUsuario);
 			cmd.Parameters.AddWithValue("cantonUsuario", cantonUsuario);
 			cmd.Parameters.AddWithValue("distritoUsuario", distritoUsuario);
-
+			
 
 			con.Open();
 			int k = cmd.ExecuteNonQuery();
@@ -61,8 +49,8 @@ namespace ProyectoP5.Controllers
 			con.Close();
 		}
 
-		public ActionResult formularioRecive(FormCollection form) { //desde esta accion se procedera a realizar el ingrso a la base de datos
-
+		public ActionResult estudiante(FormCollection form)
+		{
 			var nombre = form["txtNombre"];
 			var cedula = form["txtCedula"];
 			var edad = form["txtEdad"];
@@ -71,15 +59,15 @@ namespace ProyectoP5.Controllers
 			var provincia = form["Provincia"];
 			var canton = form["txtCanton"];
 			var distrito = form["txtDistrito"];
+			
 
-			ViewBag.Provincia = provincia;
 			ViewBag.Nombre = nombre;
 			ViewBag.cedula = cedula;
 			ViewBag.edad = edad;
 			ViewBag.Correo = correo;
-			ViewBag.profecion = profecion;
+			ViewBag.profecion = profecion;			
 			ViewBag.canton = canton;
-			ViewBag.distrito = distrito;
+			ViewBag.distrito = distrito;			
 
 			if (int.Parse(ViewBag.Provincia) == 0)
 			{
@@ -110,27 +98,9 @@ namespace ProyectoP5.Controllers
 				ViewBag.Provincia = "Cartago";
 			}
 			int edadNumero = Int32.Parse(edad);
+			usuariosConeccion(nombre, cedula, edadNumero , correo, profecion, provincia, canton, distrito);
 			
-			try
-			{
-				usuariosConeccion(nombre, cedula, edadNumero, correo, profecion, provincia, canton, distrito);
-
-				return View("confirmacionFormulario");
-			}
-			catch (Exception)
-			{
-				return View("error");
-				throw;
-			}
-			
-
-
+			return View("confirmacionFormulario");
 		}
-		public ActionResult foro()
-		{
-			return View();
-		}
-		
-		
 	}
 }
