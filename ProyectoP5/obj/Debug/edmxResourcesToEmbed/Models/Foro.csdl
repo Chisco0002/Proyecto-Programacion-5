@@ -42,6 +42,10 @@
       <End Role="foroRespuestas" EntitySet="foroRespuestas" />
     </AssociationSet>
     <EntitySet Name="asddsa" EntityType="Foro.asddsa" />
+    <EntitySet Name="tasaBasicaPasiva" EntityType="Foro.tasaBasicaPasiva" />
+    <EntitySet Name="tasaDePolíticaMonetaria" EntityType="Foro.tasaDePolíticaMonetaria" />
+    <EntitySet Name="tipoDeCambioCompra" EntityType="Foro.tipoDeCambioCompra" />
+    <EntitySet Name="tipoDeCambioVenta" EntityType="Foro.tipoDeCambioVenta" />
   </EntityContainer>
   <EntityType Name="asddsa">
     <Key>
@@ -51,5 +55,41 @@
     <Property Name="Espacio2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Espacio3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Espacio4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tasaBasicaPasiva">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desFecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tasaDePolíticaMonetaria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desFecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tipoDeCambioCompra">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desFecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tipoDeCambioVenta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desFecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

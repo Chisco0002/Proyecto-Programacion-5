@@ -32,6 +32,42 @@
           <Property Name="detalleRespuesta" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="consultaID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="tasaBasicaPasiva">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codIndicador" Type="varchar" MaxLength="50" />
+          <Property Name="desFecha" Type="varchar" MaxLength="50" />
+          <Property Name="numValor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tasaDePolíticaMonetaria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codIndicador" Type="varchar" MaxLength="50" />
+          <Property Name="desFecha" Type="varchar" MaxLength="50" />
+          <Property Name="numValor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipoDeCambioCompra">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codIndicador" Type="varchar" MaxLength="50" />
+          <Property Name="desFecha" Type="varchar" MaxLength="50" />
+          <Property Name="numValor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipoDeCambioVenta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codIndicador" Type="varchar" MaxLength="50" />
+          <Property Name="desFecha" Type="varchar" MaxLength="50" />
+          <Property Name="numValor" Type="varchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_foroRespuestas_foroConsulata">
           <End Role="foroConsulata" Type="Self.foroConsulata" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -50,6 +86,10 @@
           <EntitySet Name="asddsa" EntityType="Self.asddsa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="foroConsulata" EntityType="Self.foroConsulata" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="foroRespuestas" EntityType="Self.foroRespuestas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tasaBasicaPasiva" EntityType="Self.tasaBasicaPasiva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tasaDePolíticaMonetaria" EntityType="Self.tasaDePolíticaMonetaria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoDeCambioCompra" EntityType="Self.tipoDeCambioCompra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoDeCambioVenta" EntityType="Self.tipoDeCambioVenta" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_foroRespuestas_foroConsulata" Association="Self.FK_foroRespuestas_foroConsulata">
             <End Role="foroConsulata" EntitySet="foroConsulata" />
             <End Role="foroRespuestas" EntitySet="foroRespuestas" />
@@ -101,6 +141,10 @@
             <End Role="foroRespuestas" EntitySet="foroRespuestas" />
           </AssociationSet>
           <EntitySet Name="asddsa" EntityType="Foro.asddsa" />
+          <EntitySet Name="tasaBasicaPasiva" EntityType="Foro.tasaBasicaPasiva" />
+          <EntitySet Name="tasaDePolíticaMonetaria" EntityType="Foro.tasaDePolíticaMonetaria" />
+          <EntitySet Name="tipoDeCambioCompra" EntityType="Foro.tipoDeCambioCompra" />
+          <EntitySet Name="tipoDeCambioVenta" EntityType="Foro.tipoDeCambioVenta" />
         </EntityContainer>
         <EntityType Name="asddsa">
           <Key>
@@ -110,6 +154,42 @@
           <Property Name="Espacio2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Espacio3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Espacio4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tasaBasicaPasiva">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="desFecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tasaDePolíticaMonetaria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="desFecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tipoDeCambioCompra">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="desFecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tipoDeCambioVenta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="desFecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -144,6 +224,46 @@
                 <ScalarProperty Name="Espacio3" ColumnName="Espacio3" />
                 <ScalarProperty Name="Espacio2" ColumnName="Espacio2" />
                 <ScalarProperty Name="Espacio1" ColumnName="Espacio1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tasaBasicaPasiva">
+            <EntityTypeMapping TypeName="Foro.tasaBasicaPasiva">
+              <MappingFragment StoreEntitySet="tasaBasicaPasiva">
+                <ScalarProperty Name="numValor" ColumnName="numValor" />
+                <ScalarProperty Name="desFecha" ColumnName="desFecha" />
+                <ScalarProperty Name="codIndicador" ColumnName="codIndicador" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tasaDePolíticaMonetaria">
+            <EntityTypeMapping TypeName="Foro.tasaDePolíticaMonetaria">
+              <MappingFragment StoreEntitySet="tasaDePolíticaMonetaria">
+                <ScalarProperty Name="numValor" ColumnName="numValor" />
+                <ScalarProperty Name="desFecha" ColumnName="desFecha" />
+                <ScalarProperty Name="codIndicador" ColumnName="codIndicador" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoDeCambioCompra">
+            <EntityTypeMapping TypeName="Foro.tipoDeCambioCompra">
+              <MappingFragment StoreEntitySet="tipoDeCambioCompra">
+                <ScalarProperty Name="numValor" ColumnName="numValor" />
+                <ScalarProperty Name="desFecha" ColumnName="desFecha" />
+                <ScalarProperty Name="codIndicador" ColumnName="codIndicador" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoDeCambioVenta">
+            <EntityTypeMapping TypeName="Foro.tipoDeCambioVenta">
+              <MappingFragment StoreEntitySet="tipoDeCambioVenta">
+                <ScalarProperty Name="numValor" ColumnName="numValor" />
+                <ScalarProperty Name="desFecha" ColumnName="desFecha" />
+                <ScalarProperty Name="codIndicador" ColumnName="codIndicador" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

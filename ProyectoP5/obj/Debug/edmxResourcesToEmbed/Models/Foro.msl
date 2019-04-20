@@ -31,5 +31,45 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tasaBasicaPasiva">
+      <EntityTypeMapping TypeName="Foro.tasaBasicaPasiva">
+        <MappingFragment StoreEntitySet="tasaBasicaPasiva">
+          <ScalarProperty Name="numValor" ColumnName="numValor" />
+          <ScalarProperty Name="desFecha" ColumnName="desFecha" />
+          <ScalarProperty Name="codIndicador" ColumnName="codIndicador" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tasaDePolíticaMonetaria">
+      <EntityTypeMapping TypeName="Foro.tasaDePolíticaMonetaria">
+        <MappingFragment StoreEntitySet="tasaDePolíticaMonetaria">
+          <ScalarProperty Name="numValor" ColumnName="numValor" />
+          <ScalarProperty Name="desFecha" ColumnName="desFecha" />
+          <ScalarProperty Name="codIndicador" ColumnName="codIndicador" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoDeCambioCompra">
+      <EntityTypeMapping TypeName="Foro.tipoDeCambioCompra">
+        <MappingFragment StoreEntitySet="tipoDeCambioCompra">
+          <ScalarProperty Name="numValor" ColumnName="numValor" />
+          <ScalarProperty Name="desFecha" ColumnName="desFecha" />
+          <ScalarProperty Name="codIndicador" ColumnName="codIndicador" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoDeCambioVenta">
+      <EntityTypeMapping TypeName="Foro.tipoDeCambioVenta">
+        <MappingFragment StoreEntitySet="tipoDeCambioVenta">
+          <ScalarProperty Name="numValor" ColumnName="numValor" />
+          <ScalarProperty Name="desFecha" ColumnName="desFecha" />
+          <ScalarProperty Name="codIndicador" ColumnName="codIndicador" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -19,10 +19,13 @@ namespace ProyectoP5.Controllers
 			return View();
 		}
 
-		public ActionResult GetData()
-		{
+        public ActionResult GetData()
+        {
             proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
-            return View();
+            var query = pv.tipoDeCambioCompra.GroupBy(p => p.desFecha).
+                Select(g => new { date = g.Key}).ToList();
+            //var query = pv.tipoDeCambioCompra.Select(x => new { Date = x.desFecha, Value = x.numValor }).ToList();
+            return Json(query, JsonRequestBehavior.AllowGet);
 		}
 
 	}

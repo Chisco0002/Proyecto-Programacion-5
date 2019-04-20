@@ -9,6 +9,10 @@
         <EntityTypeShape EntityType="Foro.foroRespuestas" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="Foro.FK_foroRespuestas_foroConsulata" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Foro.asddsa" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Foro.tasaBasicaPasiva" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Foro.tasaDePolíticaMonetaria" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Foro.tipoDeCambioCompra" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Foro.tipoDeCambioVenta" Width="1.5" PointX="0.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

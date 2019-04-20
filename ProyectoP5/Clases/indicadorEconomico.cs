@@ -72,16 +72,17 @@ namespace ProyectoP5.Clases
 			con.Close();
 		}
 		public void tipoDeCambioCompra()
-		{ 
-            DateTime fechaI = DateTime.Today.AddDays(-1095);
-            DateTime fechaF = DateTime.Today;
-            for (DateTime i = fechaI;i < fechaF; i=i.AddDays(1)) { 
-			tipoDeCambioCompraDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
-			String codIndicador = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
-			String desFecha = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-			String numValor = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
-			tipoDeCambioCompraConeccion(codIndicador, desFecha, numValor);
-            }
+		{
+            //DateTime fechaI = DateTime.Today.AddDays(-1095);
+            //DateTime fechaF = DateTime.Today;
+            //for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
+            //{
+            //    tipoDeCambioCompraDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
+            //    String codIndicador = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
+            //    String desFecha = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
+            //    String numValor = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
+            //    tipoDeCambioCompraConeccion(codIndicador, desFecha, numValor);
+            //}
         }
 
 		protected void tasaDePoliticaMonetariaConeccion(string codIndicador, string desFecha, string numValor)
@@ -102,16 +103,16 @@ namespace ProyectoP5.Clases
 		}
 		public void tasaDePoliticaMonetaria()
 		{
-            DateTime fechaI = DateTime.Today.AddDays(-1095);
-            DateTime fechaF = DateTime.Today;
-            for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
-            {
-			tasaDePoliticaMonetariaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
-			String codIndicador = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
-			String desFecha = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-			String numValor = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
-			tasaDePoliticaMonetariaConeccion(codIndicador, desFecha, numValor);
-            }
+   //         DateTime fechaI = DateTime.Today.AddDays(-1095);
+   //         DateTime fechaF = DateTime.Today;
+   //         for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
+   //         {
+			//tasaDePoliticaMonetariaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
+			//String codIndicador = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
+			//String desFecha = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
+			//String numValor = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
+			//tasaDePoliticaMonetariaConeccion(codIndicador, desFecha, numValor);
+   //         }
         }
 
 
@@ -135,16 +136,16 @@ namespace ProyectoP5.Clases
 		}
 		public void tasaBasicaPasiva()
 		{
-            DateTime fechaI = DateTime.Today.AddDays(-1095);
-            DateTime fechaF = DateTime.Today;
-            for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
-            {
-                tasaBasicaPasivaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("423", i.ToShortDateString(), i.ToShortDateString(), "Ignacio", "N");
-                String codIndicador = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
-                String desFecha = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-                String numValor = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
-                tasaBasicaPasivaConeccion(codIndicador, desFecha, numValor);
-            }
+            //DateTime fechaI = DateTime.Today.AddDays(-1095);
+            //DateTime fechaF = DateTime.Today;
+            //for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
+            //{
+            //    tasaBasicaPasivaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("423", i.ToShortDateString(), i.ToShortDateString(), "Ignacio", "N");
+            //    String codIndicador = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
+            //    String desFecha = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
+            //    String numValor = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
+            //    tasaBasicaPasivaConeccion(codIndicador, desFecha, numValor);
+            //}
         }
 
 
