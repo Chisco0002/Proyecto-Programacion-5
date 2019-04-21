@@ -1,7 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = "Error del Formulario";
 }
 
-<h2>Error</h2>
-
+<h2>Informacion Invalida</h2>
+<h3>La información del formulario es invalida, por favor reintente.</h3>
+<h4>
+    @Html.ActionLink("Volver al Formulario", "formulario", "paginas", null, new { @class = "nav-link" })
+</h4>
+<h4>
+    @Html.ActionLink("Pagina de Inicio", "Index", "Home", null, new { @class = "navbar-brand" })
+</h4>
