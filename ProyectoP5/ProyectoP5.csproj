@@ -189,6 +189,9 @@
     <Compile Include="Models\foroRespuestas.cs">
       <DependentUpon>Foro.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Foro.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tasaBasicaPasiva.cs">
       <DependentUpon>Foro.tt</DependentUpon>
     </Compile>
@@ -307,6 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

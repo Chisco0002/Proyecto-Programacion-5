@@ -1,57 +1,143 @@
 ﻿
 @{
-    ViewBag.Title = "dolar";
+    ViewBag.Title = "Tipo de cambio - USD";
 }
 
-<h2>dolar</h2>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div class="row">
+
+    <div class="col-md-12">
+
+        <h1 class="text-center">Tipo de Cambio - USD</h1>
+
+        <div id="idChart">Cargando...</div>
+
+    </div>
+
+    <div class="col-md-12">
+
+        <h5>Descripción:</h5>
+        <p>Descripción del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+        <h5>Formula:</h5>
+        <p>Fórmula de cálculo del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+        <h5>Periodidad del calculo del indicador:</h5>
+        <p>Periodicidad de cálculo del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h5>Impacto a costarricenses:</h5>
+        <p>Explicación del impacto que podría tener para los costarricenses las fluctuaciones a la baja o a la alza de dicho indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    </div>
+
+</div>
 
 <script>
     $(document).ready(function () {
-        $.getJSON("/Home/GetData", function (data) {
-            var Fechas = [];
-            var Values = [];
-            for (var i = 0; i < data.length; i++) {
-                Fechas.push(data[i].Date);
-                Values.push(data[i].Value);
-            }
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'line'
-                },
+
+        var ventaValues = [];
+        var compraValues = [];
+
+        var chartVenta = {
+            chart: {
+                zoomtype: 'x'
+            },
+            title: {
+                text: 'Tipo de Cambio - USD'
+            },
+            subtitle: {
+                text: 'Fuente: Banco Central de Costa Rica'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
                 title: {
-                    text: 'Monthly Average Temperature'
-                },
-                subtitle: {
-                    text: 'Source: WorldClimate.com'
-                },
-                xAxis: {
-                    categories: Fechas
-                },
-                yAxis: {
-                    title: {
-                        text: 'Temperature (°C)'
-                    }
-                },
-                plotOptions: {
-                    line: {
-                        dataLabels: {
-                            enabled: true
-                        },
-                        enableMouseTracking: false
-                    }
-                },
-                series: [{
-                    name: 'Trend',
-                    data: Values
-                }]
-            });
+                    text: 'Tipo de cambio'
+                }
+            },
+            plotOptions: {
+                //series: {
+                //    turboThreshold: 0
+                //}
+            },
+            series: [{
+                type: 'line',
+                name: 'Venta',
+                data: []
+            },
+            {
+                type: 'line',
+                name: 'Compra',
+                data: []
+            }
+
+            ]
+        };
+
+
+
+        var chartObj = Highcharts.chart('idChart', chartVenta);
+
+        chartObj.showLoading();
+
+
+
+        //chart.showLoading('Cargando datos del servidor...');
+
+        // Carga json de TipoCambioVenta y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
+        $.getJSON("/Home/GetTipoCambioVenta", function (data) {
+
+            var valuesTemp = JSON.parse(data);
+
+            for (var i of valuesTemp) {
+
+                timestampTemp = new Date(i['desFecha']).getTime();
+
+                ventaValues.push([timestampTemp, parseInt(i['numValor'])]);
+            }
+
+
+            chartVenta.series["0"].data = ventaValues;
+
+            cargarData();
+
+
         });
+
+        // Carga json de TipoCambioCompra y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
+        $.getJSON("/Home/GetTipoCambioCompra", function (data) {
+
+            var valuesTemp = JSON.parse(data);
+
+            for (var i of valuesTemp) {
+
+                timestampTemp = new Date(i['desFecha']).getTime();
+
+                compraValues.push([timestampTemp, parseInt(i['numValor'])]);
+            }
+
+
+            chartVenta.series["1"].data = compraValues;
+
+            cargarData();
+
+        });
+
+        function cargarData() {
+
+            Highcharts.chart('idChart', chartVenta);
+
+            chartObj.hideLoading();
+        }
+
+
     });
-    
+
 </script>

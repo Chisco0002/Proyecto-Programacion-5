@@ -12,11 +12,12 @@ namespace ProyectoP5.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tipoDeCambioCompra
+    public partial class sysdiagrams
     {
-        public int id { get; set; }
-        public string codIndicador { get; set; }
-        public Nullable<System.DateTime> desFecha { get; set; }
-        public string numValor { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

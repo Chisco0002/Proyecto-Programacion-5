@@ -27,13 +27,23 @@
     <Property Name="detalleRespuesta" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="consultaID" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="tasaBasicaPasiva">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="codIndicador" Type="varchar" MaxLength="50" />
-    <Property Name="desFecha" Type="varchar" MaxLength="50" />
+    <Property Name="desFecha" Type="datetime" />
     <Property Name="numValor" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tasaDePolíticaMonetaria">
@@ -42,7 +52,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="codIndicador" Type="varchar" MaxLength="50" />
-    <Property Name="desFecha" Type="varchar" MaxLength="50" />
+    <Property Name="desFecha" Type="datetime" />
     <Property Name="numValor" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tipoDeCambioCompra">
@@ -51,7 +61,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="codIndicador" Type="varchar" MaxLength="50" />
-    <Property Name="desFecha" Type="varchar" MaxLength="50" />
+    <Property Name="desFecha" Type="datetime" />
     <Property Name="numValor" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tipoDeCambioVenta">
@@ -60,7 +70,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="codIndicador" Type="varchar" MaxLength="50" />
-    <Property Name="desFecha" Type="varchar" MaxLength="50" />
+    <Property Name="desFecha" Type="datetime" />
     <Property Name="numValor" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_foroRespuestas_foroConsulata">
@@ -81,6 +91,7 @@
     <EntitySet Name="asddsa" EntityType="Self.asddsa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="foroConsulata" EntityType="Self.foroConsulata" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="foroRespuestas" EntityType="Self.foroRespuestas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tasaBasicaPasiva" EntityType="Self.tasaBasicaPasiva" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tasaDePolíticaMonetaria" EntityType="Self.tasaDePolíticaMonetaria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipoDeCambioCompra" EntityType="Self.tipoDeCambioCompra" Schema="dbo" store:Type="Tables" />

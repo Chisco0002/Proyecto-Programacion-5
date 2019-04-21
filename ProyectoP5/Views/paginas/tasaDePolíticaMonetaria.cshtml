@@ -1,7 +1,112 @@
 ﻿
 @{
-    ViewBag.Title = "tasaDePolíticaMonetaria";
+    ViewBag.Title = "Tasa de política monetaria";
 }
 
-<h2>tasaDePolíticaMonetaria</h2>
 
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <h1 class="text-center">Tasa de política monetaria</h1>
+
+        <div id="idChart">Cargando...</div>
+
+    </div>
+
+    <div class="col-md-12">
+
+        <h5>Descripción:</h5>
+        <p>Descripción del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+        <h5>Formula:</h5>
+        <p>Fórmula de cálculo del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+        <h5>Periodidad del calculo del indicador:</h5>
+        <p>Periodicidad de cálculo del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h5>Impacto a costarricenses:</h5>
+        <p>Explicación del impacto que podría tener para los costarricenses las fluctuaciones a la baja o a la alza de dicho indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        var tasaDePoliticaMonetariaValues = [];
+
+        var chartTasaDePoliticaMonetaria = {
+            chart: {
+                zoomtype: 'x'
+            },
+            title: {
+                text: 'Tasa de Política Monetaria'
+            },
+            subtitle: {
+                text: 'Fuente: Banco Central de Costa Rica'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'TPM'
+                }
+            },
+            plotOptions: {
+                //series: {
+                //    turboThreshold: 0
+                //}
+            },
+            series: [{
+                type: 'line',
+                name: 'TPM',
+                data: []
+            }]
+        };
+
+        var chartObj = Highcharts.chart('idChart', chartTasaDePoliticaMonetaria);
+
+        chartObj.showLoading();
+
+
+        //chart.showLoading('Cargando datos del servidor...');
+
+        // Carga json de TasaDePoliticaMonetaria y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
+        $.getJSON("/Home/GetTasaDePoliticaMonetaria", function (data) {
+
+            var valuesTemp = JSON.parse(data);
+
+            for (var i of valuesTemp) {
+
+                timestampTemp = new Date(i['desFecha']).getTime();
+
+                tasaDePoliticaMonetariaValues.push([timestampTemp, parseInt(i['numValor'])]);
+            }
+
+            chartTasaDePoliticaMonetaria.series["0"].data = tasaDePoliticaMonetariaValues;
+
+            cargarData();
+
+        });
+
+
+        function cargarData() {
+
+            Highcharts.chart('idChart', chartTasaDePoliticaMonetaria);
+
+            chartObj.hideLoading();
+        }
+
+
+    });
+
+</script>

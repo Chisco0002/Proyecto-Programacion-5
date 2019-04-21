@@ -16,7 +16,7 @@ namespace ProyectoP5.Models
     {
         public int id { get; set; }
         public string codIndicador { get; set; }
-        public string desFecha { get; set; }
+        public Nullable<System.DateTime> desFecha { get; set; }
         public string numValor { get; set; }
     }
 }

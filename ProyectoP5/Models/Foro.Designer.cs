@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\ignac\OneDrive\Escritorio\Proyecto\Proyecto-Programacion-5\ProyectoP5\Models\Foro.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\Marco León\Documents\GitHub\Proyecto-Programacion-5\ProyectoP5\Models\Foro.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

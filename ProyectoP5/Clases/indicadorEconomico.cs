@@ -1,153 +1,259 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Web.Mvc;
 using ProyectoP5.Models;
 
 namespace ProyectoP5.Clases
 {
 
-	public class indicadorEconomico
-	{
-		private proyectoProgramacionVEntities3 db = new proyectoProgramacionVEntities3();
-		cr.fi.bccr.gee.wsIndicadoresEconomicos indicadorConsulta = new cr.fi.bccr.gee.wsIndicadoresEconomicos();
-
-		//DataSets utilizados para el almacenamiento de los datos
-		public DataSet tipoDeCambioVentaDataSet;
-		public DataSet tipoDeCambioCompraDataSet;
-		public DataSet tasaDePoliticaMonetariaDataSet;
-		public DataSet tasaBasicaPasivaDataSet;
-		
-		//Codigo Indicador  indicadorEconomicoDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
-		//Fecha Consulta    indicadorEconomicoDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-		//Codigo Consultado indicadorEconomicoDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
-		
-			
-			//Falta Modificar las fechas para hacer que traiga los datos del día en especifico(hoy)
-
-		protected void tipoDeCambioVentaConeccion(string codIndicador, string desFecha, string numValor)
-		{
-
-			SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=proyectoProgramacionV;Integrated Security=True");
-			SqlCommand cmd = new SqlCommand("insertar_tipoDeCambioVenta", con);
-			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.Parameters.AddWithValue("codIndicador", codIndicador);
-			cmd.Parameters.AddWithValue("desFecha", desFecha);
-			cmd.Parameters.AddWithValue("numValor", numValor);			
-			
-			con.Open();
-			int k = cmd.ExecuteNonQuery();
-			if (k != 0)
-			{
-			}
-			con.Close();
-		}
-		public void tipoDeCambioVenta() {
-			
-			tipoDeCambioVentaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("318", "01/04/2019", "01/04/2019", "Francisco", "N");
-			String codIndicador = tipoDeCambioVentaDataSet.Tables[0].Rows[0].ItemArray[0].ToString(); 
-			String desFecha = tipoDeCambioVentaDataSet.Tables[0].Rows[0].ItemArray[1].ToString(); 
-			String numValor = tipoDeCambioVentaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
-			tipoDeCambioVentaConeccion(codIndicador, desFecha, numValor);
-			
-
-		}
+    public class indicadorEconomico
+    {
+        private proyectoProgramacionVEntities3 db = new proyectoProgramacionVEntities3();
+        cr.fi.bccr.gee.wsIndicadoresEconomicos indicadorConsulta = new cr.fi.bccr.gee.wsIndicadoresEconomicos();
 
 
-		protected void tipoDeCambioCompraConeccion(string codIndicador, string desFecha, string numValor)
-		{
+        string stringConn = System.Configuration.ConfigurationManager.
+    ConnectionStrings["ProyectoP5.Properties.Settings.proyectoProgramacionV"].ConnectionString;
 
-			SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=proyectoProgramacionV;Integrated Security=True");
-			SqlCommand cmd = new SqlCommand("insertar_tipoDeCambioCompra", con);
-			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.Parameters.AddWithValue("codIndicador", codIndicador);
-			cmd.Parameters.AddWithValue("desFecha", desFecha);
-			cmd.Parameters.AddWithValue("numValor", numValor);
+        //INDICADORES PARA EL PROYECTO
+        //Tipo de cambio venta: 318
+        //Tipo de cambio compra: 317
+        //Tasa de política monetaria: 3541
+        //Tasa Basica pasiva: 423
 
-			con.Open();
-			int k = cmd.ExecuteNonQuery();
-			if (k != 0)
-			{
-			}
-			con.Close();
-		}
-		public void tipoDeCambioCompra()
-		{
-            //DateTime fechaI = DateTime.Today.AddDays(-1095);
-            //DateTime fechaF = DateTime.Today;
-            //for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
-            //{
-            //    tipoDeCambioCompraDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
-            //    String codIndicador = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
-            //    String desFecha = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-            //    String numValor = tipoDeCambioCompraDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
-            //    tipoDeCambioCompraConeccion(codIndicador, desFecha, numValor);
-            //}
+        //DataSets utilizados para el almacenamiento de los datos
+        public DataSet tipoDeCambioVentaDataSet;
+        public DataSet tipoDeCambioCompraDataSet;
+        public DataSet tasaDePoliticaMonetariaDataSet;
+        public DataSet tasaBasicaPasivaDataSet;
+
+        //TODO Ajustar fecha inicial
+        DateTime fechaI = DateTime.Today.AddYears(-5);
+
+        DateTime fechaF = DateTime.Today;
+
+
+        //Codigo Indicador  indicadorEconomicoDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
+        //Fecha Consulta    indicadorEconomicoDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
+        //Codigo Consultado indicadorEconomicoDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
+
+
+        //Falta Modificar las fechas para hacer que traiga los datos del día en especifico(hoy)
+
+
+        ////// Venta
+        public void tipoDeCambioVenta()
+        {
+            try
+            {
+
+                tipoDeCambioVentaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("318", fechaI.ToShortDateString(), fechaF.ToShortDateString(), "Marco", "N");
+
+                foreach (DataTable table in tipoDeCambioVentaDataSet.Tables)
+                {
+                    foreach (DataRow dr in table.Rows)
+                    {
+                        string codIndicador = dr[0].ToString();
+                        DateTime desFecha = Convert.ToDateTime(dr[1]);
+                        string numValor = dr[2].ToString();
+
+                        tipoDeCambioVentaConeccion(codIndicador, desFecha, numValor);
+                    }
+
+                }
+            }
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+            }
+
+
+
+
         }
 
-		protected void tasaDePoliticaMonetariaConeccion(string codIndicador, string desFecha, string numValor)
-		{
-			SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=proyectoProgramacionV;Integrated Security=True");
-			SqlCommand cmd = new SqlCommand("insertar_tasaDePolíticaMonetaria", con);
-			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.Parameters.AddWithValue("codIndicador", codIndicador);
-			cmd.Parameters.AddWithValue("desFecha", desFecha);
-			cmd.Parameters.AddWithValue("numValor", numValor);
+        protected void tipoDeCambioVentaConeccion(string codIndicador, DateTime desFecha, string numValor)
+        {
 
-			con.Open();
-			int k = cmd.ExecuteNonQuery();
-			if (k != 0)
-			{
-			}
-			con.Close();
-		}
-		public void tasaDePoliticaMonetaria()
-		{
-   //         DateTime fechaI = DateTime.Today.AddDays(-1095);
-   //         DateTime fechaF = DateTime.Today;
-   //         for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
-   //         {
-			//tasaDePoliticaMonetariaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", i.ToShortDateString(), i.ToShortDateString(), "Francisco", "N");
-			//String codIndicador = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
-			//String desFecha = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-			//String numValor = tasaDePoliticaMonetariaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
-			//tasaDePoliticaMonetariaConeccion(codIndicador, desFecha, numValor);
-   //         }
+            SqlConnection con = new SqlConnection(@stringConn);
+            SqlCommand cmd = new SqlCommand("insertar_tipoDeCambioVenta", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("codIndicador", codIndicador);
+            cmd.Parameters.AddWithValue("desFecha", desFecha);
+            cmd.Parameters.AddWithValue("numValor", numValor);
+
+            con.Open();
+            int k = cmd.ExecuteNonQuery();
+            if (k != 0)
+            {
+            }
+            con.Close();
+        }
+
+        ////// Compra
+        public void tipoDeCambioCompra()
+        {
+
+            try
+            {
+                tipoDeCambioCompraDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("317", fechaI.ToShortDateString(), fechaF.ToShortDateString(), "Marco", "N");
+
+                foreach (DataTable table in tipoDeCambioCompraDataSet.Tables)
+                {
+                    foreach (DataRow dr in table.Rows)
+                    {
+                        string codIndicador = dr[0].ToString();
+                        DateTime desFecha = Convert.ToDateTime(dr[1]);
+                        string numValor = dr[2].ToString();
+
+                        tipoDeCambioCompraConeccion(codIndicador, desFecha, numValor);
+                    }
+
+                }
+
+            }
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+            }
+
+        }
+
+        protected void tipoDeCambioCompraConeccion(string codIndicador, DateTime desFecha, string numValor)
+        {
+
+            SqlConnection con = new SqlConnection(@stringConn);
+            SqlCommand cmd = new SqlCommand("insertar_tipoDeCambioCompra", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("codIndicador", codIndicador);
+            cmd.Parameters.AddWithValue("desFecha", desFecha);
+            cmd.Parameters.AddWithValue("numValor", numValor);
+
+            con.Open();
+            int k = cmd.ExecuteNonQuery();
+            if (k != 0)
+            {
+            }
+            con.Close();
+        }
+
+
+        ////// Tasa basica pasiva
+        public void tasaBasicaPasiva()
+        {
+
+            try
+            {
+                tasaBasicaPasivaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("423", fechaI.ToShortDateString(), fechaF.ToShortDateString(), "Marco", "N");
+
+                foreach (DataTable table in tasaBasicaPasivaDataSet.Tables)
+                {
+                    foreach (DataRow dr in table.Rows)
+                    {
+                        string codIndicador = dr[0].ToString();
+                        DateTime desFecha = Convert.ToDateTime(dr[1]);
+                        string numValor = dr[2].ToString();
+
+                        tasaBasicaPasivaConeccion(codIndicador, desFecha, numValor);
+                    }
+
+                }
+
+            }
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+            }
+
+        }
+
+
+        protected void tasaBasicaPasivaConeccion(string codIndicador, DateTime desFecha, string numValor)
+        {
+
+            SqlConnection con = new SqlConnection(@stringConn);
+            SqlCommand cmd = new SqlCommand("insertar_tasaBasicaPasiva", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("codIndicador", codIndicador);
+            cmd.Parameters.AddWithValue("desFecha", desFecha);
+            cmd.Parameters.AddWithValue("numValor", numValor);
+
+            con.Open();
+            int k = cmd.ExecuteNonQuery();
+            if (k != 0)
+            {
+            }
+            con.Close();
         }
 
 
 
-		protected void tasaBasicaPasivaConeccion(string codIndicador, string desFecha, string numValor)
-		{
+        ////// Tasa politica monetaria
+        public void tasaDePoliticaMonetaria()
+        {
 
-			SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=proyectoProgramacionV;Integrated Security=True");
-			SqlCommand cmd = new SqlCommand("insertar_tasaBasicaPasiva", con);
-			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.Parameters.AddWithValue("codIndicador", codIndicador);
-			cmd.Parameters.AddWithValue("desFecha", desFecha);
-			cmd.Parameters.AddWithValue("numValor", numValor);
+            try
+            {
 
-			con.Open();
-			int k = cmd.ExecuteNonQuery();
-			if (k != 0)
-			{
-			}
-			con.Close();
-		}
-		public void tasaBasicaPasiva()
-		{
-            //DateTime fechaI = DateTime.Today.AddDays(-1095);
-            //DateTime fechaF = DateTime.Today;
-            //for (DateTime i = fechaI; i < fechaF; i = i.AddDays(1))
-            //{
-            //    tasaBasicaPasivaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("423", i.ToShortDateString(), i.ToShortDateString(), "Ignacio", "N");
-            //    String codIndicador = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[0].ToString();
-            //    String desFecha = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-            //    String numValor = tasaBasicaPasivaDataSet.Tables[0].Rows[0].ItemArray[2].ToString();
-            //    tasaBasicaPasivaConeccion(codIndicador, desFecha, numValor);
-            //}
+                tasaDePoliticaMonetariaDataSet = indicadorConsulta.ObtenerIndicadoresEconomicos("3541", fechaI.ToShortDateString(), fechaF.ToShortDateString(), "Marco", "N");
+
+                foreach (DataTable table in tasaDePoliticaMonetariaDataSet.Tables)
+                {
+                    foreach (DataRow dr in table.Rows)
+                    {
+                        string codIndicador = dr[0].ToString();
+                        DateTime desFecha = Convert.ToDateTime(dr[1]);
+                        string numValor = dr[2].ToString();
+
+                        tasaDePoliticaMonetariaConeccion(codIndicador, desFecha, numValor);
+                    }
+
+                }
+            }
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+            }
+
         }
 
+        protected void tasaDePoliticaMonetariaConeccion(string codIndicador, DateTime desFecha, string numValor)
+        {
+            SqlConnection con = new SqlConnection(@stringConn);
+            SqlCommand cmd = new SqlCommand("insertar_tasaDePolíticaMonetaria", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("codIndicador", codIndicador);
+            cmd.Parameters.AddWithValue("desFecha", desFecha);
+            cmd.Parameters.AddWithValue("numValor", numValor);
 
-	}
+            con.Open();
+            int k = cmd.ExecuteNonQuery();
+            if (k != 0)
+            {
+            }
+            con.Close();
+        }
+    }
 }
