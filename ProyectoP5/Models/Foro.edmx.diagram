@@ -5,10 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2addd339f039424ebe4854018c201a80" Name="Diagram1">
-        <EntityTypeShape EntityType="Foro.foroConsulata" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Foro.foroRespuestas" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="Foro.FK_foroRespuestas_foroConsulata" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Foro.asddsa" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Foro.foroConsulata" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="Foro.foroRespuestas" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="Foro.sysdiagrams" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Foro.tasaBasicaPasiva" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Foro.tasaDePolíticaMonetaria" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Foro.tipoDeCambioCompra" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Foro.tipoDeCambioVenta" Width="1.5" PointX="2.75" PointY="6.75" />
+        <AssociationConnector Association="Foro.FK_foroRespuestas_foroConsulata" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

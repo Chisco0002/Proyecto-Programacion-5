@@ -22,13 +22,13 @@ namespace ProyectoP5.Controllers
 		public DataSet usuarioDataSet;
 
 		protected void usuariosConeccion(string nombreUsuario, string cedulaUsuario,
-										int edadUsuario, string correoUsuario, 
-										string profesiónUsuario, string provinciaUsuario, 
+										int edadUsuario, string correoUsuario,
+										string profesiónUsuario, string provinciaUsuario,
 										string cantonUsuario, string distritoUsuario)
 		{
-	
 
-		   SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=proyectoProgramacionV;Integrated Security=True");
+
+			SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=proyectoProgramacionV;Integrated Security=True");
 			SqlCommand cmd = new SqlCommand("insercion_Usuario", con);
 			cmd.CommandType = CommandType.StoredProcedure;
 			cmd.Parameters.AddWithValue("nombreUsuario", nombreUsuario);
@@ -39,7 +39,7 @@ namespace ProyectoP5.Controllers
 			cmd.Parameters.AddWithValue("provinciaUsuario", provinciaUsuario);
 			cmd.Parameters.AddWithValue("cantonUsuario", cantonUsuario);
 			cmd.Parameters.AddWithValue("distritoUsuario", distritoUsuario);
-			
+
 
 			con.Open();
 			int k = cmd.ExecuteNonQuery();
@@ -59,15 +59,15 @@ namespace ProyectoP5.Controllers
 			var provincia = form["Provincia"];
 			var canton = form["txtCanton"];
 			var distrito = form["txtDistrito"];
-			
+
 
 			ViewBag.Nombre = nombre;
 			ViewBag.cedula = cedula;
 			ViewBag.edad = edad;
 			ViewBag.Correo = correo;
-			ViewBag.profecion = profecion;			
+			ViewBag.profecion = profecion;
 			ViewBag.canton = canton;
-			ViewBag.distrito = distrito;			
+			ViewBag.distrito = distrito;
 
 			if (int.Parse(ViewBag.Provincia) == 0)
 			{
@@ -98,8 +98,8 @@ namespace ProyectoP5.Controllers
 				ViewBag.Provincia = "Cartago";
 			}
 			int edadNumero = Int32.Parse(edad);
-			usuariosConeccion(nombre, cedula, edadNumero , correo, profecion, provincia, canton, distrito);
-			
+			usuariosConeccion(nombre, cedula, edadNumero, correo, profecion, provincia, canton, distrito);
+
 			return View("confirmacionFormulario");
 		}
 	}

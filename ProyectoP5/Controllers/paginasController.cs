@@ -15,23 +15,23 @@ namespace ProyectoP5.Controllers
         {
             return View();
         }
-		public ActionResult tasaDePolíticaMonetaria()
-		{
-			return View();
-		}
-		public ActionResult tasaBasicaPasiva()
-		{
-			return View();
-		}
-		public ActionResult dolar()
-		{
-			return View();
-		}
+        public ActionResult tasaDePolíticaMonetaria()
+        {
+            return View();
+        }
+        public ActionResult tasaBasicaPasiva()
+        {
+            return View();
+        }
+        public ActionResult dolar()
+        {
+            return View();
+        }
 
-		public ActionResult formulario()
-		{
-			return View();
-		}
+        public ActionResult formulario()
+        {
+            return View();
+        }
 
 		protected void usuariosConeccion(string nombreUsuario, string cedulaUsuario,
 										int edadUsuario, string correoUsuario,
@@ -61,7 +61,8 @@ namespace ProyectoP5.Controllers
 			con.Close();
 		}
 
-		public ActionResult formularioRecive(FormCollection form) { //desde esta accion se procedera a realizar el ingrso a la base de datos
+		public ActionResult formularioRecive(FormCollection form)
+		{ //desde esta accion se procedera a realizar el ingrso a la base de datos
 
 			var nombre = form["txtNombre"];
 			var cedula = form["txtCedula"];
@@ -110,7 +111,7 @@ namespace ProyectoP5.Controllers
 				ViewBag.Provincia = "Cartago";
 			}
 			int edadNumero = Int32.Parse(edad);
-			
+
 			try
 			{
 				usuariosConeccion(nombre, cedula, edadNumero, correo, profecion, provincia, canton, distrito);
@@ -122,15 +123,15 @@ namespace ProyectoP5.Controllers
 				return View("error");
 				throw;
 			}
-			
+
 
 
 		}
 		public ActionResult foro()
-		{
-			return View();
-		}
-		
-		
-	}
+        {
+            return View();
+        }
+
+
+    }
 }

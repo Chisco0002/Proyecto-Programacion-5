@@ -1,47 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Foro" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="foroConsulata">
-    <Key>
-      <PropertyRef Name="consultaID" />
-    </Key>
-    <Property Name="consultaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombreRemitente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="tituloConsulta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="detalleConsulta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="foroRespuestas" Relationship="Self.FK_foroRespuestas_foroConsulata" FromRole="foroConsulata" ToRole="foroRespuestas" />
-  </EntityType>
-  <EntityType Name="foroRespuestas">
-    <Key>
-      <PropertyRef Name="respuestaID" />
-    </Key>
-    <Property Name="respuestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombreReceptor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="detalleRespuesta" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="consultaID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="foroConsulata" Relationship="Self.FK_foroRespuestas_foroConsulata" FromRole="foroRespuestas" ToRole="foroConsulata" />
-  </EntityType>
-  <Association Name="FK_foroRespuestas_foroConsulata">
-    <End Role="foroConsulata" Type="Self.foroConsulata" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="foroRespuestas" Type="Self.foroRespuestas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="foroConsulata">
-        <PropertyRef Name="consultaID" />
-      </Principal>
-      <Dependent Role="foroRespuestas">
-        <PropertyRef Name="consultaID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="proyectoProgramacionVEntities3" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="foroConsulata" EntityType="Self.foroConsulata" />
-    <EntitySet Name="foroRespuestas" EntityType="Self.foroRespuestas" />
-    <AssociationSet Name="FK_foroRespuestas_foroConsulata" Association="Self.FK_foroRespuestas_foroConsulata">
+    <EntitySet Name="asddsa" EntityType="Foro.asddsa" />
+    <EntitySet Name="foroConsulata" EntityType="Foro.foroConsulata" />
+    <EntitySet Name="foroRespuestas" EntityType="Foro.foroRespuestas" />
+    <EntitySet Name="sysdiagrams" EntityType="Foro.sysdiagrams" />
+    <EntitySet Name="tasaBasicaPasiva" EntityType="Foro.tasaBasicaPasiva" />
+    <EntitySet Name="tasaDePolíticaMonetaria" EntityType="Foro.tasaDePolíticaMonetaria" />
+    <EntitySet Name="tipoDeCambioCompra" EntityType="Foro.tipoDeCambioCompra" />
+    <EntitySet Name="tipoDeCambioVenta" EntityType="Foro.tipoDeCambioVenta" />
+    <AssociationSet Name="FK_foroRespuestas_foroConsulata" Association="Foro.FK_foroRespuestas_foroConsulata">
       <End Role="foroConsulata" EntitySet="foroConsulata" />
       <End Role="foroRespuestas" EntitySet="foroRespuestas" />
     </AssociationSet>
-    <EntitySet Name="asddsa" EntityType="Foro.asddsa" />
   </EntityContainer>
   <EntityType Name="asddsa">
     <Key>
@@ -52,4 +23,84 @@
     <Property Name="Espacio3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Espacio4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="foroConsulata">
+    <Key>
+      <PropertyRef Name="consultaID" />
+    </Key>
+    <Property Name="consultaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreRemitente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tituloConsulta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="detalleConsulta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="foroRespuestas" Relationship="Foro.FK_foroRespuestas_foroConsulata" FromRole="foroConsulata" ToRole="foroRespuestas" />
+  </EntityType>
+  <EntityType Name="foroRespuestas">
+    <Key>
+      <PropertyRef Name="respuestaID" />
+    </Key>
+    <Property Name="respuestaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreReceptor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="detalleRespuesta" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="consultaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="foroConsulata" Relationship="Foro.FK_foroRespuestas_foroConsulata" FromRole="foroRespuestas" ToRole="foroConsulata" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tasaBasicaPasiva">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desFecha" Type="DateTime" Precision="3" />
+    <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tasaDePolíticaMonetaria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desFecha" Type="DateTime" Precision="3" />
+    <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tipoDeCambioCompra">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desFecha" Type="DateTime" Precision="3" />
+    <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tipoDeCambioVenta">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codIndicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="desFecha" Type="DateTime" Precision="3" />
+    <Property Name="numValor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_foroRespuestas_foroConsulata">
+    <End Type="Foro.foroConsulata" Role="foroConsulata" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Foro.foroRespuestas" Role="foroRespuestas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foroConsulata">
+        <PropertyRef Name="consultaID" />
+      </Principal>
+      <Dependent Role="foroRespuestas">
+        <PropertyRef Name="consultaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

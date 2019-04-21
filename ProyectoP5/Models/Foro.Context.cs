@@ -25,8 +25,13 @@ namespace ProyectoP5.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<asddsa> asddsa { get; set; }
         public virtual DbSet<foroConsulata> foroConsulata { get; set; }
         public virtual DbSet<foroRespuestas> foroRespuestas { get; set; }
-        public virtual DbSet<asddsa> asddsa { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<tasaBasicaPasiva> tasaBasicaPasiva { get; set; }
+        public virtual DbSet<tasaDePolíticaMonetaria> tasaDePolíticaMonetaria { get; set; }
+        public virtual DbSet<tipoDeCambioCompra> tipoDeCambioCompra { get; set; }
+        public virtual DbSet<tipoDeCambioVenta> tipoDeCambioVenta { get; set; }
     }
 }

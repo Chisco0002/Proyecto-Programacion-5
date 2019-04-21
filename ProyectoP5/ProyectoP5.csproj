@@ -190,6 +190,21 @@
     <Compile Include="Models\foroRespuestas.cs">
       <DependentUpon>Foro.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Foro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tasaBasicaPasiva.cs">
+      <DependentUpon>Foro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tasaDePolíticaMonetaria.cs">
+      <DependentUpon>Foro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipoDeCambioCompra.cs">
+      <DependentUpon>Foro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipoDeCambioVenta.cs">
+      <DependentUpon>Foro.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -211,7 +226,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagenes\OrganigramaElProgreso.png" />
     <Content Include="Models\Foro.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Foro.edmx</DependentUpon>
@@ -293,12 +307,14 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\paginas\confirmacionFormulario.cshtml" />
     <Content Include="Views\paginas\error.cshtml" />
+    <Content Include="Views\paginas\confirmacionFormulario.cshtml" />
     <None Include="Web References\cr.fi.bccr.gee\wsIndicadoresEconomicos.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\" />
+    <Folder Include="Views\usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
