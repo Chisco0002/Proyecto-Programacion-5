@@ -58,6 +58,22 @@ namespace ProyectoP5.Controllers
         }
 
 
+        public ActionResult GetTipoCambioVentaDash()
+        {
+            proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
+            DateTime fecha = DateTime.Now.AddDays(-365);
+
+            var query2 = pv.tipoDeCambioVenta.Where(x => x.desFecha > fecha).Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
+
+            //foreach (var item in query2)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
+            //}
+
+            string jsonTemp = JsonConvert.SerializeObject(query2);
+
+            return Json(jsonTemp, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult GetTipoCambioVenta()
         {
             proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
@@ -107,6 +123,22 @@ namespace ProyectoP5.Controllers
 
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult GetTipoCambioCompraDash()
+        {
+            DateTime fecha = DateTime.Now.AddDays(-365);
+            proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
+
+            var query2 = pv.tipoDeCambioCompra.Where(x => x.desFecha > fecha).Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
+
+            //foreach (var item in query2)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
+            //}
+
+            string jsonTemp = JsonConvert.SerializeObject(query2);
+
+            return Json(jsonTemp, JsonRequestBehavior.AllowGet);
+        }
 
         ////// TasaBasicaPasiva
 
@@ -131,6 +163,22 @@ namespace ProyectoP5.Controllers
             proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
 
             var query2 = pv.tasaBasicaPasiva.Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
+
+            //foreach (var item in query2)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
+            //}
+
+            string jsonTemp = JsonConvert.SerializeObject(query2);
+
+            return Json(jsonTemp, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult GetTasaBasicaPasivaDash()
+        {
+            proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
+            DateTime fecha = DateTime.Now.AddDays(-365);
+
+            var query2 = pv.tasaBasicaPasiva.Where(x => x.desFecha > fecha).Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
 
             //foreach (var item in query2)
             //{
@@ -178,5 +226,21 @@ namespace ProyectoP5.Controllers
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetTasaDePoliticaMonetariaDash()
+        {
+            proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
+            DateTime fecha = DateTime.Now.AddDays(-365);
+
+            var query2 = pv.tasaDePolíticaMonetaria.Where(x => x.desFecha > fecha).Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
+
+            //foreach (var item in query2)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
+            //}
+
+            string jsonTemp = JsonConvert.SerializeObject(query2);
+
+            return Json(jsonTemp, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -306,6 +306,7 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\paginas\pizarra.cshtml" />
     <None Include="Web References\cr.fi.bccr.gee\wsIndicadoresEconomicos.wsdl" />
   </ItemGroup>
   <ItemGroup>

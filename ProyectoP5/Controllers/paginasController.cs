@@ -19,6 +19,10 @@ namespace ProyectoP5.Controllers
         {
             return View();
         }
+        public ActionResult pizarra()
+        {
+            return View();
+        }
         public ActionResult tasaBasicaPasiva()
         {
             return View();
