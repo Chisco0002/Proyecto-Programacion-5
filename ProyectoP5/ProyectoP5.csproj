@@ -156,12 +156,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Clases\correosControl.cs" />
     <Compile Include="Clases\indicadorEconomico.cs" />
     <Compile Include="Controllers\foroConsulatasController.cs" />
     <Compile Include="Controllers\foroController.cs" />
     <Compile Include="Controllers\foroRespuestasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\paginasController.cs" />
+    <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -306,7 +308,12 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+<<<<<<< HEAD
     <Content Include="Views\paginas\pizarra.cshtml" />
+=======
+    <Content Include="Views\paginas\error.cshtml" />
+    <Content Include="Views\paginas\confirmacionFormulario.cshtml" />
+>>>>>>> 2f35777af8e5b66f139b062e76a0e930c6fa0655
     <None Include="Web References\cr.fi.bccr.gee\wsIndicadoresEconomicos.wsdl" />
   </ItemGroup>
   <ItemGroup>
