@@ -25,19 +25,19 @@
                 <li class="@(ViewBag.Current == "AcercaDe" ? "active" : "")">
                     @Html.ActionLink("Acerca de", "informacionGeneral", "paginas", null, new { @class = "nav-link" })
                 </li>
-                <li class="nav-item">
+                <li class="@(ViewBag.Current == "Cambio" ? "active" : "")">
                     @Html.ActionLink("Dólar", "dolar", "paginas", null, new { @class = "nav-link" })
                 </li>
-                <li class="nav-item">
+                <li class="@(ViewBag.Current == "TBP" ? "active" : "")">
                     @Html.ActionLink("Tasa Básica Pasiva", "tasaBasicaPasiva", "paginas", null, new { @class = "nav-link" })
                 </li>
-                <li class="nav-item">
+                <li class="@(ViewBag.Current == "TPM" ? "active" : "")">
                     @Html.ActionLink("Tasa de Política Monetaria", "tasaDePolíticaMonetaria", "paginas", null, new { @class = "nav-link" })
                 </li>
-                <li class="nav-item">
+                <li class="@(ViewBag.Current == "Suscribirse" ? "active" : "")">
                     @Html.ActionLink("Suscribirse", "formulario", "paginas", null, new { @class = "nav-link" })
                 </li>
-                <li class="nav-item">
+                <li class="@(ViewBag.Current == "Foro" ? "active" : "")">
                     @Html.ActionLink("Foro", "index", "foro", null, new { @class = "nav-link" })
                 </li>
             </ul>
