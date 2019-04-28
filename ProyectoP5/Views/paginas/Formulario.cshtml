@@ -5,16 +5,23 @@
 
 
 <div class="row">
+
     <div class="col-md-12">
+
         <h1>Suscribirse:</h1>
+
         <p>Suscribase a nuestro boletín informativo diario, para recibir las últimas noticias sobre la economía costarricense!</p>
+
     </div>
+
     <div class="col-md-12">
+
         @using (Html.BeginForm("formularioRecive", "paginas", FormMethod.Post))
         {
 
 
             <div class="form-group">
+
                 <h3>
                     @Html.Label("nombre", "Nombre:  ")&nbsp;
                     @Html.TextBox("txtNombre", null, new { @class = "form-control", @required = "true" })
@@ -23,6 +30,7 @@
                     @Html.Label("cedula", "Cedula:  ")&nbsp;
                     @Html.TextBox("txtCedula", null, new { @class = "form-control", @type = "number", @required = "true" })
                 </h3>
+
                 <h3>
                     @Html.Label("edad", "Edad:  ")&nbsp;
                     @Html.TextBox("txtEdad", null, new { @class = "form-control", @type = "number", @required = "true" })
@@ -32,10 +40,12 @@
                     @Html.TextBox("txtCorreo", null, new { @class = "form-control", @type = "email", @required = "true" })
                 </h3>
 
+
                 <h3>
                     @Html.Label("profecion", "Profesión:  ")&nbsp;
                     @Html.TextBox("txtProfecion", null, new { @class = "form-control", @required = "true" })
                 </h3>
+
                 <h3>
                     @Html.Label("provincia", "Provincia:  ")&nbsp;
                     @Html.DropDownList("Provincia", new List<SelectListItem> {
@@ -46,11 +56,14 @@
                                         new SelectListItem{Text="Limon",Value="4" },
                                         new SelectListItem{Text="Heredia",Value="5" },
                                         new SelectListItem{Text="Cartago",Value="6" }}, new { @class = "form-control" })
+
                     @Html.Label("canton", "Cantón:  ") &nbsp;
                     @Html.TextBox("txtCanton", null, new { @class = "form-control", @required = "true" })
+
                     @Html.Label("distrito", "Distrito:  ") &nbsp;
                     @Html.TextBox("txtDistrito", null, new { @class = "form-control", @required = "true" })
                 </h3>
+
 
             </div>
 
@@ -58,11 +71,11 @@
             <div class="col-md-12" role="group">
                 <input type="submit" value="Guardar" name="Guardar" class="btn btn-primary" />
                 <input type="reset" value="Limpiar" name="Limpiar" class="btn btn-danger" />
+
             </div>
         }
     </div>
-    @Html.ActionLink("Enviar Información", "enviarCorreos")
-    
+
 </div>
 
 
