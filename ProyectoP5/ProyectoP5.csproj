@@ -310,6 +310,7 @@
     </Content>
     <Content Include="Views\paginas\error.cshtml" />
     <Content Include="Views\paginas\confirmacionFormulario.cshtml" />
+    <Content Include="Views\paginas\pizarra.cshtml" />
     <None Include="Web References\cr.fi.bccr.gee\wsIndicadoresEconomicos.wsdl" />
   </ItemGroup>
   <ItemGroup>

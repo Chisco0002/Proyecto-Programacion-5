@@ -40,7 +40,7 @@ namespace ProyectoP5.Clases
 			public void EnviaCorreo(String Correo, String Nombre)
 			{
 				//modificar la direccion por una cuenta de correo de gmail, preferiblemente una creada para pruebas nada mas
-				var fromAddress = new MailAddress("elprogreso333@gmail.com", "De");
+				var fromAddress = new MailAddress("elprogreso333@gmail.com", "El Progreso");
 				var toAddress = new MailAddress(Correo, "To Name");
 				//Agregar contrasenia del correo
 				const string fromPassword = "Nomelase69";
@@ -56,8 +56,9 @@ namespace ProyectoP5.Clases
 					UseDefaultCredentials = false,
 					Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
 				};
-				using (var message = new MailMessage(fromAddress, toAddress)
-				{
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                    IsBodyHtml = true,
 					Subject = subject,
 					Body = body
 				})
@@ -95,6 +96,8 @@ namespace ProyectoP5.Clases
 
 					ds = consultarBaseDeDatos(sql);
 					dt = ds.Tables[0];
+
+                body2 += "<h1>Aquí tienes un resumen de El Progreso de los últimos días</h1><hr>";
 					
 				foreach (DataRow row in dt.Rows)
 					{
@@ -104,11 +107,11 @@ namespace ProyectoP5.Clases
 						string venta = Convert.ToString(row["numValor3"]);
 						DateTime fecha = Convert.ToDateTime(row["desFecha"]);
 
-						body2 = "Fecha: " + fecha + "\r\n" +
-									"Taza basica: " + basicaPasiva + "\r\n" +
-									"Politica Monetaria: " + politicaMonetaria + "\r\n" +
-									"Tipo de cambio de compra del dolár: " + compra + "\r\n" +
-									"Tipo de cambio de venta del dolár: " + venta;
+						body2 = "<h1>Fecha: " + fecha.ToShortDateString() + "</h1><br>" +
+                                    "<p>Tasa Básica Pasiva: " + basicaPasiva + "</p>" +
+                                    "<p>Tasa Política Monetaria: " + politicaMonetaria + "</p>" +
+                                    "<p>Tipo de cambio de compra del dolár: " + compra + "</p>" +
+									"<p>Tipo de cambio de venta del dolár: " + venta + "</p><br>";
 
 
 					}

@@ -1,3 +1,6 @@
+Create database proyectoProgramacionV 
+GO
+
 USE [proyectoProgramacionV]
 GO
 /****** Object:  Table [dbo].[asddsa]    Script Date: 25/4/2019 02:55:06 ******/
