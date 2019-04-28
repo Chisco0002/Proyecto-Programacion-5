@@ -306,7 +306,10 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+<<<<<<< HEAD
     <Content Include="Views\paginas\pizarra.cshtml" />
+=======
+>>>>>>> parent of 2f35777... Correo
     <None Include="Web References\cr.fi.bccr.gee\wsIndicadoresEconomicos.wsdl" />
   </ItemGroup>
   <ItemGroup>
