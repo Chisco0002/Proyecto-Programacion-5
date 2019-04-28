@@ -1,44 +1,29 @@
-﻿using System;
+﻿using ProyectoP5.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ProyectoP5.Clases;
 
 namespace ProyectoP5.Controllers
 {
-    public class paginasController : Controller
-    {
-        // GET: paginas
-        public ActionResult InformacionGeneral()
-        {
-            return View();
-        }
-        public ActionResult tasaDePolíticaMonetaria()
-        {
-            return View();
-        }
-        public ActionResult tasaBasicaPasiva()
-        {
-            return View();
-        }
-        public ActionResult dolar()
-        {
-            return View();
-        }
-
-        public ActionResult formulario()
-        {
-            return View();
-        }
+	
+	public class usuarios : Controller
+	{
 		Clases.correosControl indi = new Clases.correosControl();
-		public ActionResult enviarCorreos()
+		// GET: Student
+		public ActionResult Index()
 		{
-			indi.Page_Load();
-			return View("informacionGeneral");
+			return View();
 		}
+		private proyectoProgramacionVEntities3 db = new proyectoProgramacionVEntities3();
 
+		public DataSet usuarioDataSet;
+
+		
 		protected void usuariosConeccion(string nombreUsuario, string cedulaUsuario,
 										int edadUsuario, string correoUsuario,
 										string profesiónUsuario, string provinciaUsuario,
@@ -67,9 +52,8 @@ namespace ProyectoP5.Controllers
 			con.Close();
 		}
 
-		public ActionResult formularioRecive(FormCollection form)
-		{ //desde esta accion se procedera a realizar el ingrso a la base de datos
-
+		public ActionResult estudiante(FormCollection form)
+		{
 			var nombre = form["txtNombre"];
 			var cedula = form["txtCedula"];
 			var edad = form["txtEdad"];
@@ -79,7 +63,7 @@ namespace ProyectoP5.Controllers
 			var canton = form["txtCanton"];
 			var distrito = form["txtDistrito"];
 
-			ViewBag.Provincia = provincia;
+
 			ViewBag.Nombre = nombre;
 			ViewBag.cedula = cedula;
 			ViewBag.edad = edad;
@@ -117,27 +101,10 @@ namespace ProyectoP5.Controllers
 				ViewBag.Provincia = "Cartago";
 			}
 			int edadNumero = Int32.Parse(edad);
+			usuariosConeccion(nombre, cedula, edadNumero, correo, profecion, provincia, canton, distrito);
 
-			try
-			{
-				usuariosConeccion(nombre, cedula, edadNumero, correo, profecion, provincia, canton, distrito);
-
-				return View("confirmacionFormulario");
-			}
-			catch (Exception)
-			{
-				return View("error");
-				throw;
-			}
-
-
-
+			return View("confirmacionFormulario");
 		}
-		public ActionResult foro()
-        {
-            return View();
-        }
-
-
-    }
+	}
+	
 }

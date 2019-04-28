@@ -87,6 +87,23 @@ namespace ProyectoP5.Controllers
 			return View(foroRespuestas);
 		}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		// GET: foroConsulatas/Create
 		public ActionResult crearConsulta()
 		{
