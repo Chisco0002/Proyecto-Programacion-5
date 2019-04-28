@@ -1,14 +1,21 @@
 ﻿
 @{
     ViewBag.Title = "Dashboard";
+    ViewBag.Current = "Dashboard";
 }
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-<h2>Dashboard</h2>
 @*------------Se inicia tasa basica pasiva--------------------------*@
 
 <div class="row">
+    <div class="col-md-12">
+
+        <h2>Dashboard</h2>
+
+    </div>
+
+
     <div class="col-md-6 border h-25">
 
         @*<h1 class="text-center">Tipo de Cambio Venta - USD</h1>*@
@@ -87,6 +94,7 @@
                 //}
             },
             series: [{
+                color: '#e6ac00',
                 type: 'line',
                 name: 'TBP',
                 data: []
@@ -139,6 +147,7 @@
                 //}
             },
             series: [{
+                color: '#e6ac00',
                 type: 'line',
                 name: 'TPM',
                 data: []
@@ -192,6 +201,7 @@
                 //}
             },
             series: [{
+                color: '#e6ac00',
                 type: 'line',
                 name: 'Venta',
                 data: []
@@ -246,6 +256,7 @@
                 //}
             },
             series: [{
+                color: '#e6ac00',
                 type: 'line',
                 name: 'Compra',
                 data: []

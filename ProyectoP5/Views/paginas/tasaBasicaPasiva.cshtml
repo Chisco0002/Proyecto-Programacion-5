@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Tasa básica pasiva";
+    ViewBag.Current = "TBP";
 }
 
 
@@ -21,21 +22,46 @@
     </div>
 
     <div class="col-md-12">
-
         <h5>Descripción:</h5>
-        <p>Descripción del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <hr />
+        <p class="text-justify">
+            La Tasa Básica Pasiva (TBP) es la tasa de referencia calculada por el Banco Central de Costa Rica que estima, en promedio,
+            la tasa que pagan los bancos públicos y privados en el país y las entidades financieras por los depósitos o ahorros en colones.
+            Este indicador se calcula desde 1981 para medir cuánto pagan los bancos y entidades por ahorros o depósitos a diferentes plazos.
+            La TBP es el indicador de referencia que utilizan los bancos para calcular los préstamos.
+        </p>
 
-
-        <h5>Formula:</h5>
-        <p>Fórmula de cálculo del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+        <h5>Fórmula:</h5>
+        <hr />
+        <p class="text-justify">
+            Se calcula con la información de las tasas de interés brutas negociadas para cada una de las operaciones de captación a plazo en 
+            colones, durante la semana anterior al cálculo. Con los promedios de tasas de interés de las diferentes entidades financieras del 
+            país, se calcula un nuevo promedio ponderado de dichos rendimientos y eso arroja la TBP de la semana, lo cual resulta útil para 
+            aquellos que desean tener una referencia de cómo se está posicionando la tasa en el mercado.
+        </p>
 
         <h5>Periodicidad del calculo del indicador:</h5>
-        <p>Periodicidad de cálculo del indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <hr />
+        <p class="text-justify">
+            La Tasa Básica Pasiva se publica el día miércoles de cada semana y rige desde el jueves siguiente y durante 
+            los siete días posteriores.
+        </p>
 
         <h5>Impacto a costarricenses:</h5>
-        <p>Explicación del impacto que podría tener para los costarricenses las fluctuaciones a la baja o a la alza de dicho indicador. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+        <hr />
+        <p class="text-justify">
+            Puede utilizarse si se desea ahorrar o invertir, para valorar si realmente lo que la entidad ofrece es competitivo o no con el mercado, 
+            para ello debe fijarse si el banco está pagando un porcentaje mayor o menor a la TBP. La TBP es utilizada por los bancos y otras 
+            entidades financieras también para fijar las tasas que cobran por sus préstamos, como se mencionó anteriormente (principalmente los de vivienda). 
+            El banco generalmente cobra una tasa indexada a esta indicador, es decir, la tasa será igual a la TBP más un porcentaje adicional. Por lo 
+            tanto, cuando la TBP sube o baja, así también se moverá la tasa del préstamo y, por lo tanto, la mensualidad que debe pagar el cliente.
+        </p>
+        
+        @*
+        Fuentes:
+        https://www.elfinancierocr.com/finanzas/que-es-la-tasa-basica-pasiva-y-para-que-sirve/RRVY2NS5VVHIPKQ76APQ6VSEKA/story/
+        https://www.larepublica.net/noticia/tasa-basica-pasiva-llego-a-625-por-primera-vez-desde-2015-que-significa
+        *@
     </div>
 
 
@@ -71,6 +97,7 @@
                 //}
             },
             series: [{
+                color: '#e6ac00',
                 type: 'line',
                 name: 'TBP',
                 data: []

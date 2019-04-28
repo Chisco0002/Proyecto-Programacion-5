@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
 
         
         <a class="navbar-brand"><img src="~/Imagenes/logo-mini.png" width="30" height="30" class="d-inline-block align-top" alt="">@Html.ActionLink("El Progreso", "Index", "Home", null, new { @class = "navbar-brand" })</a>
@@ -19,20 +19,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    @Html.ActionLink("Pizarra", "pizarra", "paginas", null, new { @class = "nav-link" })
+                <li class="@(ViewBag.Current == "Dashboard" ? "active" : "")">
+                @Html.ActionLink("Pizarra", "pizarra", "paginas", null, new { @class = "nav-link" })
                 </li>
-                <li class="nav-item">
+                <li class="@(ViewBag.Current == "AcercaDe" ? "active" : "")">
                     @Html.ActionLink("Acerca de", "informacionGeneral", "paginas", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Tasa de Política Monetaria", "tasaDePolíticaMonetaria", "paginas", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Dólar", "dolar", "paginas", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
                     @Html.ActionLink("Tasa Básica Pasiva", "tasaBasicaPasiva", "paginas", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Dólar", "dolar", "paginas", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Tasa de Política Monetaria", "tasaDePolíticaMonetaria", "paginas", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
                     @Html.ActionLink("Suscribirse", "formulario", "paginas", null, new { @class = "nav-link" })
