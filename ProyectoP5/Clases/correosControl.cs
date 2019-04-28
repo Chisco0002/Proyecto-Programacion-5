@@ -15,7 +15,8 @@ namespace ProyectoP5.Clases
 			DateTime fechaF = DateTime.Today;		
 			private string body2;
 			private int dias;
-			string bodyCompleto = "";
+			string bodyCompleto = "<h1>Aquí tienes un resumen de El Progreso de los últimos días</h1><hr>";
+			int id;
 
 			public void Page_Load()
 			{
@@ -26,18 +27,27 @@ namespace ProyectoP5.Clases
 
 				foreach (DataRow row in dt.Rows)
 				{
-					int id = Convert.ToInt32(row["id"]);
+					id = Convert.ToInt32(row["id"]);
 					string Correo = Convert.ToString(row["correoUsuario"]);
 					string Nombre = Convert.ToString(row["nombreUsuario"]);
 					dias = Convert.ToInt32(row["fecha"]);
+					actualizarFecha();
 					cuerpoCorreo();
 					EnviaCorreo(Correo, Nombre);
 				}
 
 			}
 
-			//envia correo utilizando el servidor SMTP de gmail, se puede modificar por cualquier otro.
-			public void EnviaCorreo(String Correo, String Nombre)
+		public void actualizarFecha()
+		{
+			DataSet ds = new DataSet();
+			//Traida de datos de la base de datos.
+			ds = consultarBaseDeDatos("UPDATE [dbo].[Usuarios]  SET[ultimoRegistro] = GETDATE() WHERE id = " + id + "");
+			
+		}
+
+		//envia correo utilizando el servidor SMTP de gmail, se puede modificar por cualquier otro.
+		public void EnviaCorreo(String Correo, String Nombre)
 			{
 				//modificar la direccion por una cuenta de correo de gmail, preferiblemente una creada para pruebas nada mas
 				var fromAddress = new MailAddress("elprogreso333@gmail.com", "El Progreso");
@@ -97,7 +107,7 @@ namespace ProyectoP5.Clases
 					ds = consultarBaseDeDatos(sql);
 					dt = ds.Tables[0];
 
-                body2 += "<h1>Aquí tienes un resumen de El Progreso de los últimos días</h1><hr>";
+                
 					
 				foreach (DataRow row in dt.Rows)
 					{
@@ -113,17 +123,12 @@ namespace ProyectoP5.Clases
                                     "<p>Tipo de cambio de compra del dolár: " + compra + "</p>" +
 									"<p>Tipo de cambio de venta del dolár: " + venta + "</p><br>";
 
-
+					
 					}
 				 bodyCompleto= bodyCompleto +body2;
 
 				}
-
-
-
-
-			}
-
+						}
 
 		}
 	}
