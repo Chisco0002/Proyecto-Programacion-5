@@ -15,7 +15,7 @@ namespace ProyectoP5.Clases
 
 
         string stringConn = System.Configuration.ConfigurationManager.
-    ConnectionStrings["ProyectoP5.Properties.Settings.proyectoProgramacionV"].ConnectionString;
+        ConnectionStrings["ProyectoP5.Properties.Settings.proyectoProgramacionV"].ConnectionString;
 
         //INDICADORES PARA EL PROYECTO
         //Tipo de cambio venta: 318
@@ -59,7 +59,7 @@ namespace ProyectoP5.Clases
                         DateTime desFecha = Convert.ToDateTime(dr[1]);
                         string numValor = dr[2].ToString();
 
-                        tipoDeCambioVentaConeccion(codIndicador, desFecha, numValor);
+                        tipoDeCambioVentaConnection(codIndicador, desFecha, numValor);
                     }
 
                 }
@@ -79,7 +79,7 @@ namespace ProyectoP5.Clases
 
         }
 
-        protected void tipoDeCambioVentaConeccion(string codIndicador, DateTime desFecha, string numValor)
+        protected void tipoDeCambioVentaConnection(string codIndicador, DateTime desFecha, string numValor)
         {
 
             SqlConnection con = new SqlConnection(@stringConn);
@@ -113,7 +113,7 @@ namespace ProyectoP5.Clases
                         DateTime desFecha = Convert.ToDateTime(dr[1]);
                         string numValor = dr[2].ToString();
 
-                        tipoDeCambioCompraConeccion(codIndicador, desFecha, numValor);
+                        tipoDeCambioCompraConnection(codIndicador, desFecha, numValor);
                     }
 
                 }
@@ -131,7 +131,7 @@ namespace ProyectoP5.Clases
 
         }
 
-        protected void tipoDeCambioCompraConeccion(string codIndicador, DateTime desFecha, string numValor)
+        protected void tipoDeCambioCompraConnection(string codIndicador, DateTime desFecha, string numValor)
         {
 
             SqlConnection con = new SqlConnection(@stringConn);
@@ -166,7 +166,7 @@ namespace ProyectoP5.Clases
                         DateTime desFecha = Convert.ToDateTime(dr[1]);
                         string numValor = dr[2].ToString();
 
-                        tasaBasicaPasivaConeccion(codIndicador, desFecha, numValor);
+                        tasaBasicaPasivaConnection(codIndicador, desFecha, numValor);
                     }
 
                 }
@@ -185,7 +185,7 @@ namespace ProyectoP5.Clases
         }
 
 
-        protected void tasaBasicaPasivaConeccion(string codIndicador, DateTime desFecha, string numValor)
+        protected void tasaBasicaPasivaConnection(string codIndicador, DateTime desFecha, string numValor)
         {
 
             SqlConnection con = new SqlConnection(@stringConn);
@@ -222,7 +222,7 @@ namespace ProyectoP5.Clases
                         DateTime desFecha = Convert.ToDateTime(dr[1]);
                         string numValor = dr[2].ToString();
 
-                        tasaDePoliticaMonetariaConeccion(codIndicador, desFecha, numValor);
+                        tasaDePoliticaMonetariaConnection(codIndicador, desFecha, numValor);
                     }
 
                 }
@@ -239,7 +239,7 @@ namespace ProyectoP5.Clases
 
         }
 
-        protected void tasaDePoliticaMonetariaConeccion(string codIndicador, DateTime desFecha, string numValor)
+        protected void tasaDePoliticaMonetariaConnection(string codIndicador, DateTime desFecha, string numValor)
         {
             SqlConnection con = new SqlConnection(@stringConn);
             SqlCommand cmd = new SqlCommand("insertar_tasaDePolíticaMonetaria", con);

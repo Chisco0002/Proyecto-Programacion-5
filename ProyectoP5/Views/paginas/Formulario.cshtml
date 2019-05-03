@@ -11,7 +11,7 @@
         <p>Suscribase a nuestro boletín informativo diario, para recibir las últimas noticias sobre la economía costarricense!</p>
     </div>
     <div class="col-md-12">
-        @using (Html.BeginForm("formularioRecive", "paginas", FormMethod.Post))
+        @using (Html.BeginForm("formularioRecibe", "paginas", FormMethod.Post))
         {
 
 
@@ -34,8 +34,8 @@
                 </h3>
 
                 <h3>
-                    @Html.Label("profecion", "Profesión:  ")&nbsp;
-                    @Html.TextBox("txtProfecion", null, new { @class = "form-control", @required = "true" })
+                    @Html.Label("profesion", "Profesión:  ")&nbsp;
+                    @Html.TextBox("txtProfesion", null, new { @class = "form-control", @required = "true" })
                 </h3>
                 <h3>
                     @Html.Label("provincia", "Provincia:  ")&nbsp;

@@ -48,11 +48,6 @@ namespace ProyectoP5.Controllers
 
             var query2 = pv.tipoDeCambioVenta.Where(x => x.desFecha > fecha).Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
 
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
-
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
@@ -64,14 +59,9 @@ namespace ProyectoP5.Controllers
 
             var query2 = pv.tipoDeCambioVenta.OrderByDescending(p => p.desFecha).FirstOrDefault();
 
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
 
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
-            //System.Diagnostics.Debug.WriteLine(jsonTemp);
 
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
         }
@@ -83,10 +73,6 @@ namespace ProyectoP5.Controllers
 
             var query2 = pv.tipoDeCambioVenta.Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
 
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
 
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
@@ -101,11 +87,6 @@ namespace ProyectoP5.Controllers
 
             var query2 = pv.tipoDeCambioCompra.Where(x => x.desFecha > fecha).Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
 
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
-
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
@@ -117,11 +98,6 @@ namespace ProyectoP5.Controllers
 
             var query2 = pv.tipoDeCambioCompra.OrderByDescending(p => p.desFecha).FirstOrDefault();
 
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
-
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
@@ -132,11 +108,6 @@ namespace ProyectoP5.Controllers
             proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
 
             var query2 = pv.tipoDeCambioCompra.Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
-
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
 
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
@@ -151,11 +122,6 @@ namespace ProyectoP5.Controllers
 
             var query2 = pv.tasaBasicaPasiva.Where(x => x.desFecha > fecha).Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
 
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
-
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
@@ -167,11 +133,6 @@ namespace ProyectoP5.Controllers
 
             var query2 = pv.tasaBasicaPasiva.OrderByDescending(p => p.desFecha).FirstOrDefault();
 
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
-
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
@@ -182,11 +143,6 @@ namespace ProyectoP5.Controllers
             proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
 
             var query2 = pv.tasaBasicaPasiva.Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
-
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
 
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
@@ -201,11 +157,6 @@ namespace ProyectoP5.Controllers
 
             var query2 = pv.tasaDePolíticaMonetaria.Where(x => x.desFecha > fecha).Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
 
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
-
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
             return Json(jsonTemp, JsonRequestBehavior.AllowGet);
@@ -216,11 +167,6 @@ namespace ProyectoP5.Controllers
             proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
 
             var query2 = pv.tasaDePolíticaMonetaria.OrderByDescending(p => p.desFecha).FirstOrDefault();
-
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
 
             string jsonTemp = JsonConvert.SerializeObject(query2);
 
@@ -233,11 +179,6 @@ namespace ProyectoP5.Controllers
             proyectoProgramacionVEntities3 pv = new proyectoProgramacionVEntities3();
 
             var query2 = pv.tasaDePolíticaMonetaria.Select(x => new { x.desFecha, x.numValor, x.codIndicador }).ToList();
-
-            //foreach (var item in query2)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item.desFecha);
-            //}
 
             string jsonTemp = JsonConvert.SerializeObject(query2);
 

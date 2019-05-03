@@ -6,65 +6,40 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-@*------------Se inicia tasa basica pasiva--------------------------*@
 
 <div class="row">
     <div class="col-md-12">
 
-        <h2>Dashboard</h2>
+        <h2>Pizarra</h2>
 
     </div>
 
 
     <div class="col-md-6 border h-25">
 
-        @*<h1 class="text-center">Tipo de Cambio Venta - USD</h1>*@
-
-        <div id="idChart" class="h-50">Cargando...</div>
+        <div id="venta" class="h-50">Cargando...</div>
 
     </div>
 
     <div class="col-md-6 border h-25">
 
-        @*<h1 class="text-center">Tipo de Cambio Compra - USD</h1>*@
-
-        <div id="idChart2" class="h-50">Cargando...</div>
+        <div id="compra" class="h-50">Cargando...</div>
 
     </div>
 
     <div class="col-md-6 border h-25">
 
-        @*<h1 class="text-center">Tasa Básica Pasiva</h1>*@
-
-        <div id="idChart3" class="h-50">Cargando...</div>
+        <div id="tbp" class="h-50">Cargando...</div>
 
     </div>
 
     <div class="col-md-6 border h-25">
 
-        @*<h1 class="text-center">Tasa de política monetaria</h1>*@
-
-        <div id="idChart4" class="h-50">Cargando...</div>
+        <div id="tpm" class="h-50">Cargando...</div>
 
     </div>
 </div>
 
-@*------------Se finaliza tasa basica pasiva--------------------------*@
-
-<div class="row">
-
-</div>
-
-
-<div class="row">
-
-</div>
-
-@*--------------Aqui inicia la tasa basica pasiva-----------------*@
-@*--------------Aqui inicia la tasa de politica monetaria-----------------*@
-<div class="row">
-
-</div>
 
 @* Script tasa basica pasiva *@
 <script>
@@ -94,28 +69,35 @@
                 //}
             },
             series: [{
+                allowDecimals: true,
                 color: '#e6ac00',
                 type: 'line',
                 name: 'TBP',
                 data: []
             }]
         };
-        var chartObj = Highcharts.chart('idChart3', chartTasaBasicaPasiva);
+        var chartObj = Highcharts.chart('tbp', chartTasaBasicaPasiva);
         chartObj.showLoading();
+
         // Carga json de TasaBasicaPasiva y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
         $.getJSON("/Home/GetTasaBasicaPasivaDash", function (data) {
+
             var valuesTemp = JSON.parse(data);
             for (var i of valuesTemp) {
                 timestampTemp = new Date(i['desFecha']).getTime();
                 tasaBasicaPasivaValues.push([timestampTemp, parseInt(i['numValor'])]);
             }
+
             chartTasaBasicaPasiva.series["0"].data = tasaBasicaPasivaValues;
             cargarData();
+
         });
+
         function cargarData() {
-            Highcharts.chart('idChart3', chartTasaBasicaPasiva);
+            Highcharts.chart('tbp', chartTasaBasicaPasiva);
             chartObj.hideLoading();
         }
+
     });
 </script>
 
@@ -147,29 +129,36 @@
                 //}
             },
             series: [{
+                allowDecimals: true,
                 color: '#e6ac00',
                 type: 'line',
                 name: 'TPM',
                 data: []
             }]
         };
-        var chartObj = Highcharts.chart('idChart4', chartTasaDePoliticaMonetaria);
+        var chartObj = Highcharts.chart('tpm', chartTasaDePoliticaMonetaria);
         chartObj.showLoading();
         //chart.showLoading('Cargando datos del servidor...');
         // Carga json de TasaDePoliticaMonetaria y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
         $.getJSON("/Home/GetTasaDePoliticaMonetariaDash", function (data) {
+
             var valuesTemp = JSON.parse(data);
+
             for (var i of valuesTemp) {
                 timestampTemp = new Date(i['desFecha']).getTime();
                 tasaDePoliticaMonetariaValues.push([timestampTemp, parseInt(i['numValor'])]);
             }
+
             chartTasaDePoliticaMonetaria.series["0"].data = tasaDePoliticaMonetariaValues;
             cargarData();
+
         });
+
         function cargarData() {
-            Highcharts.chart('idChart4', chartTasaDePoliticaMonetaria);
+            Highcharts.chart('tpm', chartTasaDePoliticaMonetaria);
             chartObj.hideLoading();
         }
+
     });
 </script>
 
@@ -201,30 +190,37 @@
                 //}
             },
             series: [{
+                allowDecimals: true,
                 color: '#e6ac00',
                 type: 'line',
                 name: 'Venta',
                 data: []
             }]
         };
-        var chartObj = Highcharts.chart('idChart', chartVenta);
+        var chartObj = Highcharts.chart('venta', chartVenta);
         chartObj.showLoading();
         //chart.showLoading('Cargando datos del servidor...');
         // Carga json de TipoCambioVenta y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
         // Carga json de TipoCambioCompra y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
         $.getJSON("/Home/GetTipoCambioVentaDash", function (data) {
+
             var valuesTemp = JSON.parse(data);
+
             for (var i of valuesTemp) {
                 timestampTemp = new Date(i['desFecha']).getTime();
                 ventaValues.push([timestampTemp, parseInt(i['numValor'])]);
             }
+
             chartVenta.series["0"].data = ventaValues;
             cargarData();
+
         });
+
         function cargarData() {
-            Highcharts.chart('idChart', chartVenta);
+            Highcharts.chart('venta', chartVenta);
             chartObj.hideLoading();
         }
+
     });
 </script>
 
@@ -256,29 +252,36 @@
                 //}
             },
             series: [{
+                allowDecimals: true,
                 color: '#e6ac00',
                 type: 'line',
                 name: 'Compra',
                 data: []
             }]
         };
-        var chartObj = Highcharts.chart('idChart2', chartCompra);
+        var chartObj = Highcharts.chart('compra', chartCompra);
         chartObj.showLoading();
-        //chart.showLoading('Cargando datos del servidor...');
-        // Carga json de TipoCambioVenta y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
+
         // Carga json de TipoCambioCompra y lo formatea en una forma leible por HighCharts (Unix Time & Valor)
         $.getJSON("/Home/GetTipoCambioCompraDash", function (data) {
+
             var valuesTemp = JSON.parse(data);
+
             for (var i of valuesTemp) {
                 timestampTemp = new Date(i['desFecha']).getTime();
                 compraValues.push([timestampTemp, parseInt(i['numValor'])]);
             }
+
             chartCompra.series["0"].data = compraValues;
             cargarData();
+
         });
+
         function cargarData() {
-            Highcharts.chart('idChart2', chartCompra);
+            Highcharts.chart('compra', chartCompra);
             chartObj.hideLoading();
         }
+
+
     });
 </script>

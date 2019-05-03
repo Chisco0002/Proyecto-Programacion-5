@@ -13,15 +13,12 @@ namespace ProyectoP5.Controllers
     public class foroConsulatasController : Controller
     {
         private proyectoProgramacionVEntities3 db = new proyectoProgramacionVEntities3();
-		
+
         // GET: foroConsulatas
         public ActionResult Index()
         {
-					
-			return View(db.foroConsulata.ToList());
-			
-		
-		}
+            return View(db.foroConsulata.ToList());
+        }
 
         // GET: foroConsulatas/Details/5
         public ActionResult Details(int? id)

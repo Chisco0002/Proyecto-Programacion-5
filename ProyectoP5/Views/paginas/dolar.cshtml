@@ -23,8 +23,8 @@
 
         <h5>Descripción:</h5>
         <p>
-            Los tipos de cambio se definen como el precio de una unidad monetaria extranjera expresado 
-            en términos de la moneda nacional, análogamente se puede expresar el precio de nuestra moneda 
+            Los tipos de cambio se definen como el precio de una unidad monetaria extranjera expresado
+            en términos de la moneda nacional, análogamente se puede expresar el precio de nuestra moneda
             en términos de otra extranjera.
         </p>
 
@@ -34,7 +34,7 @@
             El cálculo del tipo de cambio de referencia de compra para el día t será el promedio
             del precio de las transacciones de compra ponderado por el monto de cada transacción para
             el día t-1, durante el período definido por acuerdo de la Junta Directiva del BCCR.
-            
+
         </p>
 
 
@@ -86,12 +86,14 @@
                 //}
             },
             series: [{
+                allowDecimals: true,
                 color: '#8f0047',
                 type: 'line',
                 name: 'Compra',
                 data: []
             },
-                {
+            {
+                allowDecimals: true,
                 color: '#8f4800',
                 type: 'line',
                 name: 'Venta',
