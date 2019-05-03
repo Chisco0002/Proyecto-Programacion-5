@@ -180,8 +180,8 @@
             document.getElementById('tbpDate').innerHTML = 'Actualizado el: ' + new Date(tbp.desFecha).toLocaleDateString();
 
 
-            document.getElementById('venta').innerHTML = 'Venta: ' + parseFloat(venta.numValor).toPrecision(4);
-            document.getElementById('compra').innerHTML = 'Compra: ' + parseFloat(compra.numValor).toPrecision(4);
+            document.getElementById('venta').innerHTML = 'Compra: ' + parseFloat(venta.numValor).toPrecision(4);
+            document.getElementById('compra').innerHTML = 'Venta: ' + parseFloat(compra.numValor).toPrecision(4);
             document.getElementById('cambioDate').innerHTML = 'Actualizado el: ' + new Date(venta.desFecha).toLocaleDateString();
 
             document.getElementById('tpm').innerHTML = 'TPM: ' + parseFloat(tpm.numValor).toPrecision(4);
